@@ -16,6 +16,8 @@ app.get("/", (req,res) =>{
     res.redirect(301,"/pizza/list")
 })
 
+
+
 app.get("/api/pizza",async (req,res) =>{
     let pizzaList = await fileReaderAsync(pizzaPath);
     res.send(JSON.parse(pizzaList).Pizza)

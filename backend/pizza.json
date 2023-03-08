@@ -4,86 +4,98 @@
          {
             "id": 1,
             "name": "Diavola",
-            "ingredients": [ "marinara sauce", "pepperoni", "mozzarella cheese" ],
+            "ingredients": [ "marinara sauce", "pepperoni", "mozzarella cheese", "sausages", "peppers", "chorizo" ],
             "price": 35,
-            "allergens": [1, 3, 5, 7, 10]          
+            "allergens": [1, 3, 5, 7, 10],        
+            "image": "(//www.dominos-pizza.ro/gallery/fmobile/1629medium.png"
           },
           {
             "id": 2,
             "name": "Margherita",
             "ingredients": [ "mozzarella cheese", "marinara sauce", "fresh basil" ],
             "price": 28,
-            "allergens": [1, 3, 5, 7, 10]          
+            "allergens": [1, 3, 5, 7, 10],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1632medium.png"
           },
           {
             "id": 3,
             "name": "Capriciosa",
             "ingredients": [ "marinara sauce", "olives", "ham", "mushrooms", "onions", "tomatoes", "mozzarella cheese" ],
             "price": 30,
-            "allergens": [1, 3, 5, 7, 10]          
+            "allergens": [1, 3, 5, 7, 10],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/2000medium.png"
           },
           {
             "id": 4,
             "name": "Quattro Stagioni",
             "ingredients": [ "marinara sauce", "mozzarella cheese", "green peppers", "ham", "chorizo", "mushrooms" ],
             "price": 32,
-            "allergens": [1, 3, 5, 7, 10]          
+            "allergens": [1, 3, 5, 7, 10],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1938medium.png"
           },
           {
             "id": 5,
             "name": "Quatro Formaggi",
             "ingredients": [ "cheese sauce", "parmesan cheese", "cheddar cheese", "brie cheese", "mozzarella cheese" ],
             "price": 30,
-            "allergens": [1, 3, 5, 7, 10]          
+            "allergens": [1, 3, 5, 7, 10],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1643medium.png"   
           },
           {
             "id": 6,
-            "name": "Hot Hawaiian",
-            "ingredients": [ "marinara sauce", "spicy cheese", "pineapple", "pepperoni" ],
+            "name": "Vegetarian",
+            "ingredients": [ "marinara sauce", "mozzarella cheese", "peppers", "tomatoes", "onions", "olives", "corn"],
             "price": 34,
-            "allergens": [1, 3, 5, 7, 10]          
+            "allergens": [1, 3, 5, 7, 10],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1636medium.png"
           },
           {
             "id": 7,
             "name": "BBQ Chicken",
             "ingredients": [ "marinara sauce", "chicken", "bbq sauce", "parmesan cheese", "mozzarella cheese", "olives", "onions" ],
             "price": 37,
-            "allergens": [1, 3, 5, 7, 10]          
+            "allergens": [1, 3, 5, 7, 10],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1640medium.png"
           },
           {
             "id": 8,
-            "name": "Seafood",
-            "ingredients": [ "marinara sauce", "mozzarella cheese" , "shrimp" , "octopus" ],
+            "name": "American Hot",
+            "ingredients": [ "marinara sauce", "mozzarella cheese" , "beef" , "onions", "corn", "jalapeno" ],
             "price": 35,
-            "allergens": [1, 2, 3, 4, 5, 7, 10]          
+            "allergens": [1, 2, 3, 4, 5, 7, 10],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/3537medium.png"
           },
           {
             "id": 9,
             "name": "Mexico",
             "ingredients": [ "marinara sauce", "pepperoni", "corn", "onions", "jalapenos", "tortilla chips" ],
             "price": 40,
-            "allergens": [1, 3, 5, 7, 10]          
+            "allergens": [1, 3, 5, 7, 10],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1644medium.png"
           },
           {
             "id": 10,
             "name": "Hot Cheese",
             "ingredients": [ "cheddar cheese", "parmesan cheese", "marinara sauce", "hot peppers", "oregano" ],
             "price": 32,
-            "allergens": [1, 3, 5, 7, 10]
+            "allergens": [1, 3, 5, 7, 10],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1935medium.png"
           },
           {
             "id": 11,
             "name": "Double Pepperoni",
             "ingredients": [ "Double pepperoni", "mozzarella cheese", "oregano", "marinara sauce" ],
             "price": 34,
-            "allergens": [1, 3, 5, 7, 10, 12]
+            "allergens": [1, 3, 5, 7, 10, 12],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/3534medium.png"
           },
           {
             "id": 12,
             "name": "Country",
             "ingredients": [ "bacon", "corn", "onions", "mushrooms", "marinara sauce", "mozzarella cheese", "mustard" ],
             "price": 35,
-            "allergens": [1, 3, 5, 6, 7, 10, 11, 12]
+            "allergens": [1, 3, 5, 6, 7, 10, 11, 12],
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/3539medium.png"
           }
     ],
 
