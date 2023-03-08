@@ -23,6 +23,6 @@ app.get("/", (req,res) =>{
     res.send("Message")
 })
 
-app.use("/public", express.static(`${__dirname}/../frontend/public`));
+app.use(express.static(`${__dirname}/../frontend/public`));
 
 app.listen( port, _ => console.log(`http://127.0.0.1:${port}`))
