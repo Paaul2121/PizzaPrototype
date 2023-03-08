@@ -7,10 +7,6 @@ app.use(express.urlencoded({ extended: false }));
 
 const port = 3000
 
-console.log(__dirname);
-
-
-
 app.get("/", (req,res) =>{
     res.redirect(301,"/pizza/list")
 })
