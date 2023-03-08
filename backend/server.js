@@ -8,9 +8,11 @@ app.use(express.urlencoded({ extended: false }));
 const port = 3000
 
 console.log(__dirname);
-app.get("/", (req,res) =>{
-    res.sendFile(path.join(`${__dirname}/../frontend/index.html`))    
-})
+
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+});
 
 app.get("/", (req,res) =>{
     res.send("Message")
