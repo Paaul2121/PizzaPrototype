@@ -10,12 +10,19 @@ const port = 3000
 console.log(__dirname);
 
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/index.html"));
-});
+
+app.get("/", (req,res) =>{
+    res.redirect(301,"/pizza/list")
+})
+
+app.get(["/pizza/list", "/pizza/list/:id"], async (req, res, next) => {
+    res.sendFile(path.join(`${__dirname}/../frontend/index.html`));
+  });
 
 app.get("/", (req,res) =>{
     res.send("Message")
 })
+
+app.use("/public", express.static(`${__dirname}/../frontend/public`));
 
 app.listen( port, _ => console.log(`http://127.0.0.1:${port}`))
