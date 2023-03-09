@@ -32,3 +32,78 @@ body {
 button{
     font-family: 'Lobster Two', cursive !important;
 }
+
+#input {
+    width: 300px;
+    position: absolute;
+    left:calc(50% - 150px) ;
+    top: 13vh;
+    border-radius: 40px;
+    height: 25px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    
+}
+#selector{
+    background-color: aliceblue;
+    width: 300px;
+    animation: anim 0.5s;
+    height: 200px;
+    position: absolute;
+    left:calc(50% - 150px) ;
+    top: 15%;
+    border-radius: 5px;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: grid;
+}
+
+#selector::-webkit-scrollbar {
+    visibility: hidden;
+}
+
+#selectorClose {
+    background-color: aliceblue;
+    width: 300px;
+    animation: animClose 0.5s;
+    height: 0px;
+    position: absolute;
+    left:calc(50% - 150px) ;
+    top: 15%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+@keyframes anim{
+    0% {
+        height: 0px;
+    }
+    100%{
+        height: 200px;
+        
+    }
+}
+
+@keyframes animClose{
+    0% {
+        height: 200px;
+    }
+    100%{
+        height: 0px;
+    }
+}
+#textALG{
+    position:absolute;
+    top:-10px;
+}
+
+#openALG{
+    position: absolute;
+    right: 10px;
+    background-color: black;
+    top: 10px;
+    cursor: pointer;
+    height: 10px;
+    border-radius: 100%;
+}
