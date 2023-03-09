@@ -7,7 +7,7 @@
             "description":"Diavola is a variety of Italian pizza that is traditionally topped with tomato sauce, mozzarella cheese, spicy salami, and hot chili peppers. Black olives are optional and can be added for extra flavor.",
             "price": 35,
             "allergens": [1, 5, 7, 9, 12],        
-            "image": "(//www.dominos-pizza.ro/gallery/fmobile/1629medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1629medium.png"
           },
           {
             "id": 2,
