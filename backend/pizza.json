@@ -1,4 +1,3 @@
-
 {
     "Pizza": [
          {
@@ -11,8 +10,8 @@
           },
           {
             "id": 2,
-            "name": "Margherita",
-            "ingredients": [ "mozzarella cheese", "marinara sauce", "fresh basil" ],
+            "name": "Light",
+            "ingredients": [ "marinara sauce", "red peppers", "red onions", "corn", "mushrooms" ],
             "price": 28,
             "allergens": [1, 3, 5, 7],
             "image": "//www.dominos-pizza.ro/gallery/fmobile/1632medium.png"
@@ -27,8 +26,8 @@
           },
           {
             "id": 4,
-            "name": "Quattro Stagioni",
-            "ingredients": [ "marinara sauce", "mozzarella cheese", "green peppers", "ham", "chorizo", "mushrooms" ],
+            "name": "Sydney",
+            "ingredients": [ "Honey Mustard Sauce", "beef", "cheddar cheese", "mushrooms" , "red onions"],
             "price": 32,
             "allergens": [1, 5, 7, 11],
             "image": "//www.dominos-pizza.ro/gallery/fmobile/1938medium.png"
@@ -43,8 +42,8 @@
           },
           {
             "id": 6,
-            "name": "Vegetarian",
-            "ingredients": [ "marinara sauce", "mozzarella cheese", "peppers", "tomatoes", "onions", "olives", "corn"],
+            "name": "Hot Hawaiian",
+            "ingredients": [ "marinara sauce", "pineapple", "spicy cheese" ],
             "price": 34,
             "allergens": [1, 5, 7],
             "image": "//www.dominos-pizza.ro/gallery/fmobile/1636medium.png"
