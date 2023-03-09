@@ -22,6 +22,20 @@ const addEl = (
   };
   
 let selector =  addEl("div", root, "id");
+
+let allPizzas = async () => {
+  let response = await fetch("/api/pizza");
+  let dataObj = await response.json();
+  let pizzaList = addEl("div", root, "id", "pizzaList");
+  for(let pizza of dataObj){
+    let pizzaCard = addEl("div", pizzaList, "id", "pizzaCard");
+    // pizzaList.append(pizzaCard);
+    // pizzaCard.append(pizza.image);
+  }
+
+
+}
+
 let counter = 0;
 let  allOptions = async () => {
     if(counter % 2 === 0){
@@ -53,11 +67,9 @@ let  allOptions = async () => {
 
 const loadEvent = () =>{
     
-
+    allPizzas();
     selectButton.addEventListener('click', select);
     
 }
-
-
 
 window.addEventListener("load",loadEvent)
