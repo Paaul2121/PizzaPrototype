@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="./client/script.js"></script>
     <link rel="stylesheet" href="./public/style.css"/> -->
-    <script src="/public/script.js"></script>
-	<link rel="stylesheet" href="/public/style.css" />
-
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
+    </style>
+    <script defer src="/script.js"></script>
+    <link defer rel="stylesheet" href="/style.css" />
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
     <title>Pizza lui Vito</title>
 </head>
+
 <body>
-    
+    <div id="root">
+        <div id="header">
+            <img src="/logo.png" id="logo">
+            <button id="menu">MENU</button>
+            <button id="contact">CONTACT</button>
+            <button id="login">LOG IN</button>
+            <button id="cart">CART</button>
+        </div>
+        <div>
+            <div id="input" >
+                <p id="textALG">SELECT ALERGENS</p>
+                <button id="openALG"></button>
+            </div>
+            <!-- <div id="selector"></div> -->
+        </div>
+    </div>
 </body>
+
 </html>
