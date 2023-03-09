@@ -30,18 +30,24 @@ const addEl = (
   let allPizzas = async (allergenSelected) => {
     let response = await fetch("/api/pizza");
     let dataObj = await response.json();
+
     pizzaList.innerHTML="";
+    console.log(pizzaList.querySelectorAll("div").length/2)
+
     for(let pizza of dataObj){
       if(pizza.allergens.reduce((acc,cur) => allergenSelected.includes(cur)? false : acc, true)){
       let pizzaCard = addEl("div", pizzaList, "id", "pizzaCard");
       let pizzaCardImg = addEl("img",pizzaCard,"class", "pizzaCardImg", "src", `${pizza.image}`)
+      let number = addEl("div", pizzaCard)
+      number.innerText = `${pizza.name}`
+      number.style.color = "white"
       }
     }   
-  
+    console.log(pizzaList.querySelectorAll("div").length/2)
   }
   
   let selector =  addEl("div", root, "id");
-let counter = 0;
+let counter = 1;
 let firstRenderAllergens = true
 let  allOptions = async () => {
     if(firstRenderAllergens){
@@ -55,9 +61,11 @@ let  allOptions = async () => {
 
           input.addEventListener("click", (e) =>{
              if(input.checked){
-              allergenSelected.push(e.target.id.slice(e.target.id.length-1,e.target.length))
+              allergenSelected.push(e.target.id.slice(e.target.id.length-1,e.target.id.length)*1)
+              console.log(allergenSelected)
              }else{
               allergenSelected.splice(allergenSelected.indexOf(allergen.name),1)
+              console.log(allergenSelected)
             }
             allPizzas(allergenSelected)
           })
