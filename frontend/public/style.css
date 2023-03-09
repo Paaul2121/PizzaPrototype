@@ -151,3 +151,25 @@ margin-left: 5px;
     font-size:30px;
 
 }
+
+#pizzaList {
+    width: 50%;
+    height: 400px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    overflow-x: auto;
+    display: inline-flex;
+    
+}
+
+#pizzaCard {
+   min-width: 25%;
+    height: 100%;
+    position: relative;
+    background-color: black;
+    margin: 0px 3px 3px 3px;
+    
+
+}
