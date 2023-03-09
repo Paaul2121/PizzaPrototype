@@ -61,6 +61,4 @@ const loadEvent = () =>{
     
 }
 
-
-
 window.addEventListener("load",loadEvent)
