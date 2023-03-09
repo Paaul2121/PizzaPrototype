@@ -158,10 +158,12 @@ margin-left: 5px;
     position: absolute;
     left: 0;
     bottom: 0;
-    background-color: white;
     overflow-x: auto;
+    overflow-y: hidden;
     display: inline-flex;
-    
+}
+#pizzaList::-webkit-scrollbar{
+    overflow-x: hidden;
 }
 
 #pizzaCard {
@@ -170,6 +172,18 @@ margin-left: 5px;
     position: relative;
     background-color: black;
     margin: 0px 3px 3px 3px;
-    
-
+    border-radius: 10px;
 }
+
+.pizzaCardImg{
+    background-color: white;
+    height: 45%;
+    border-radius: 10px;
+    position: relative;
+    top: 3%;
+    width: 80%;
+    left: 10%;
+}
+
+
+
