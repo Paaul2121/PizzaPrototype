@@ -31,12 +31,9 @@ let  allOptions = async () => {
         
         for(let allergen of dataObj){
           let optionInput = addEl("div", selector, "id", "optionInput");
-          let label = document.createElement("label");
-          let input = document.createElement("input");
-          input.setAttribute("type", "checkbox");
-          label.textContent = allergen.name;
-          optionInput.append(input);
-          optionInput.append(label);
+          let input = addEl("input",optionInput,"type","checkbox","class","checkboxOption")
+          let label = addEl("label",optionInput, "class", "allergenLabel")
+          label.textContent = allergen.name[0].toUpperCase() + allergen.name.slice(1,allergen.name.length);
           counter++;
         }
     }

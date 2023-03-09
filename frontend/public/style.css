@@ -17,19 +17,38 @@ body {
 }
 
 #header{
+    position: relative;
     margin: 0px;
     font-family: 'Lobster Two', cursive !important;
-   
     width: 100%;
     height: 10%;
     background-color: red;
+    display:flex;
+    align-items: center;
 }
 #logo{
     width: 13vh;
     height: 10vh;
+    margin-right: 5px;
 }
-button{
+.headerButton{
     font-family: 'Lobster Two', cursive !important;
+    height: 50px;
+    width: 125px;
+    margin: 0px 5px 0px 10px
+}
+#loginHandle{
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 40px;
+    border-color: black 15px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#loginLogo{
+margin-left: 5px;
 }
 
 #input {
@@ -37,13 +56,24 @@ button{
     position: absolute;
     left:calc(50% - 150px) ;
     top: 13vh;
-    border-radius: 40px;
+    border-radius: 10px 10px 3px 3px;
     height: 25px;
     background-color: aliceblue;
     display: flex;
     justify-content: center;
     
 }
+
+.checkboxOption{
+    position: relative;
+    margin: 0px 5px 0px 5px
+
+}
+.allergenLabel{
+    font-size: 20px;
+}
+
+
 #selector{
     background-color: aliceblue;
     width: 300px;
@@ -51,7 +81,7 @@ button{
     height: 200px;
     position: absolute;
     left:calc(50% - 150px) ;
-    top: 15%;
+    top: 16%;
     border-radius: 5px;
     overflow: scroll;
     overflow-x: hidden;
@@ -93,16 +123,31 @@ button{
     }
 }
 #textALG{
-    position:absolute;
+    position:relative;
     top:-10px;
 }
 
 #openALG{
     position: absolute;
-    right: 10px;
+    margin-left:10px ;
+    right: 0px;
+    background-color: transparent;
+    border: transparent;
+    transition: 0.5s;
+    /* right: 10px;
     background-color: black;
     top: 10px;
     cursor: pointer;
     height: 10px;
-    border-radius: 100%;
+    border-radius: 100%; */
+}
+
+#openALG:hover{
+    background-color:lightgray ;
+    border-radius: 5px;
+}
+
+#arrowDown:hover{
+    font-size:30px;
+
 }

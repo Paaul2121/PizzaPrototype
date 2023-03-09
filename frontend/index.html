@@ -26,19 +26,24 @@
 <body>
     <!-- <i class='fas fa-shopping-basket' style='font-size:24px'></i>
     <i class='fas fa-shopping-cart' style='font-size:24px'></i>
-    <i class="fa-solid fa-user" style="font-size: larger;"></i> -->
+     <i class="fa-solid fa-user" style="font-size: larger;"></i> -->
     <div id="root">
         <div id="header">
             <img src="/logo.png" id="logo">
-            <button id="menu">MENU</button>
-            <button id="contact">CONTACT</button>
-            <button id="login">LOG IN</button>
-            <button id="cart">CART</button>
+            <button id="menu" class="headerButton">MENU</button>
+            <button id="contact" class="headerButton">CONTACT</button>
+            <!-- <button id="login">LOG IN</button> -->
+            <div id="loginHandle">                                                 
+                <label style="font-size: 25px;">Login</label>
+            <i class="fa-solid fa-user" style="font-size: 25px;" id="loginLogo"></i> 
+            </div>
+            <!-- <button id="cart">CART</button> -->
+            <i class='fas fa-shopping-cart' style='font-size:24px'></i>
         </div>
         <div>
             <div id="input" >
                 <p id="textALG">SELECT ALERGENS</p>
-                <button id="openALG"></button>
+                <button id="openALG"><i id="arrowDown" class='fas fa-caret-down' style='font-size:24px'></i></button>
             </div>
             <!-- <div id="selector"></div> -->
         </div>
