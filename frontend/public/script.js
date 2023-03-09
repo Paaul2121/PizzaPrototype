@@ -32,7 +32,6 @@ const addEl = (
     let dataObj = await response.json();
 
     pizzaList.innerHTML="";
-    console.log(pizzaList.querySelectorAll("div").length/2)
 
     for(let pizza of dataObj){
       if(pizza.allergens.reduce((acc,cur) => allergenSelected.includes(cur)? false : acc, true)){
@@ -57,11 +56,11 @@ let  allOptions = async () => {
         
         for(let allergen of dataObj){
           let optionInput = addEl("div", selector, "id", "optionInput");
-          let input = addEl("input",optionInput,"type", "checkbox" ,"class" ,"checkboxOption", "id", `checkBox${counter}`);
+          let input = addEl("input",optionInput,"type", "checkbox" ,"class" ,"checkboxOption", "id", `${counter}checkbox`);
 
           input.addEventListener("click", (e) =>{
              if(input.checked){
-              allergenSelected.push(e.target.id.slice(e.target.id.length-1,e.target.id.length)*1)
+              allergenSelected.push(parseInt(e.target.id))
               console.log(allergenSelected)
              }else{
               allergenSelected.splice(allergenSelected.indexOf(allergen.name),1)
