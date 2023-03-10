@@ -37,6 +37,16 @@ body {
     display:flex;
     align-items: center;
 }
+
+#loginHandle:hover{
+    background-color: red;
+    top:16px;
+}
+#cartHandle:hover{
+    background-color: red;
+    top:16px;
+}
+
 #logo{
     width: 13vh;
     height: 10vh;
@@ -72,13 +82,11 @@ body {
 }
 
 #input {
-    width: 300px;
-    position: absolute;
-    left:calc(50% - 150px) ;
-    top: 13vh;
+    width: 175px;
+    position: relative;
     border-radius: 10px 10px 3px 3px;
-    height: 25px;
-    background-color: aliceblue;
+    height: 50px;
+    background-color: white;
     display: flex;
     justify-content: center;
     
@@ -100,8 +108,8 @@ body {
     animation: anim 0.5s;
     height: 200px;
     position: absolute;
-    left:calc(50% - 150px) ;
-    top: 16%;
+    left:20% ;
+    top: 10%;
     border-radius: 5px;
     overflow: scroll;
     overflow-x: hidden;
@@ -118,8 +126,8 @@ body {
     animation: animClose 0.5s;
     height: 0px;
     position: absolute;
-    left:calc(50% - 150px) ;
-    top: 16%;
+    left:20% ;
+    top: 10%;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -143,12 +151,12 @@ body {
     }
 }
 #textALG{
-    position:relative;
-    top:-10px;
+    /* position:relative;
+    top:-10px; */
 }
 
 #openALG{
-    position: absolute;
+    position: relative;
     margin-left:10px ;
     right: 0px;
     background-color: transparent;
