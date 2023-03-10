@@ -1,9 +1,11 @@
 let root = document.getElementById("root");
 let input = document.getElementById("input");
 let selectButton = document.getElementById("openALG");
+let bigImage = document.getElementById("bigImage");
 let bool = false;
 let allCheckBox;
 let allergenSelected = [];
+let selectedPizza = true;
 
 
 const addEl = (
@@ -22,7 +24,36 @@ const addEl = (
       if (atr3 != undefined) el.setAttribute(atr3, atr3Name);
       if (parent != undefined) parent.appendChild(el);
       return el;
-    };
+};
+
+
+let orderSchema = {
+    id: 1,
+    pizzas: [
+      {
+        id: "",
+        amount: ""
+      }
+    ],
+    date: 
+    {
+     year: "", 
+     month: "",
+     day: "",
+     hour: "",
+     minute: ""
+    },
+    customer: 
+    {
+      name: "",
+      email: "",
+      address: 
+      {
+        city: "",
+        street: ""
+      }
+    }
+}
     
     
     let pizzaList = addEl("div", root, "id", "pizzaList");
@@ -31,9 +62,23 @@ const addEl = (
     let response = await fetch("/api/pizza");
     let dataObj = await response.json();
     pizzaList.innerHTML="";
+    let selectedButton = null;
     for(let pizza of dataObj){
       if(pizza.allergens.reduce((acc,cur) => allergenSelected.includes(cur)? false : acc, true)){
       let pizzaCard = addEl("div", pizzaList, "id", "pizzaCard");
+      let pizzaButton = addEl("button", pizzaCard, "id", "pizzaButton");
+
+      pizzaButton.addEventListener('click', () => {
+        bigImage.style.visibility = "visible";
+        if (selectedButton) {
+          console.log(selectedButton);
+          selectedButton.style.backgroundColor = 'black';
+        }
+        pizzaButton.style.backgroundColor = 'white';
+        bigImage.src = pizza.croppedImage;
+        selectedButton = pizzaButton; 
+      })
+
       let pizzaCardImg = addEl("img",pizzaCard,"class", "pizzaCardImg", "src", `${pizza.image}`)
       }
     }   
@@ -89,6 +134,7 @@ const loadEvent = () =>{
     
     allPizzas([]);
     selectButton.addEventListener('click', select);
+
     
 
 }

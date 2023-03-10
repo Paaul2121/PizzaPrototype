@@ -7,7 +7,8 @@
             "description":"Diavola is a variety of Italian pizza that is traditionally topped with tomato sauce, mozzarella cheese, spicy salami, and hot chili peppers. Black olives are optional and can be added for extra flavor.",
             "price": 35,
             "allergens": [1, 5, 7, 9, 12],        
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/1629medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1629medium.png",
+            "croppedImage": "/images/1629medium-removebg-preview.png"
           },
           {
             "id": 2,
@@ -16,7 +17,8 @@
             "description":"The secret to a crispy pizza with a light and fluffy interior? Start with the right dough: one that has both yeast and baking powder for rise and puff. Then, bake the whole thing on a pre-heated baking stone or steel to create an unbelievably light, crunchy crust. Top this pizza as you wish — everything pairs well with crunch. ",
             "price": 28,
             "allergens": [1, 3, 5, 7],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/1632medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1632medium.png",
+            "croppedImage": "/images/1632medium-removebg-preview.png"
           },
           {
             "id": 3,
@@ -25,7 +27,8 @@
             "description": "Capricciosa Pizza is a classic Italian pizza. The Capricciosa, as everybody calls it, is on every pizzeria's menu, usually under the list of traditional pizzas. Its staple ingredients are tomato puree, mozzarella, cremini mushrooms, artichoke hearts, black olives, and prosciutto cotto (Italian cooked ham).",
             "price": 30,
             "allergens": [1, 3, 5, 7],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/2000medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/2000medium.png",
+            "croppedImage": "/images/2000medium-removebg-preview.png"
           },
           {
             "id": 4,
@@ -34,7 +37,8 @@
             "description":"Sydney has no shortage of world-class pizzas, but that wasnt always the case. In the 1950s, you would have been hard-pressed to find a pizza outside of Leichhardts Norton Street (aside from CBD stalwart Beppi's, perhaps). And Pizza Hut, which preceded Dominos and Eagle Boys by over 15 years, didnt open its first Sydney shop till the early 70s.",
             "price": 32,
             "allergens": [1, 5, 7, 11],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/1938medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1938medium.png",
+            "croppedImage": "/images/1938medium-removebg-preview.png"
           },
           {
             "id": 5,
@@ -43,7 +47,8 @@
             "description":"Quattro Formaggi pizza is made from four types of cheese. Positano provides you with Quattro Formaggi rossa pizza, prepared according to the original Positano recipe, on crispy and puffy dough with tomato sauce, cheeses: Mozzarella, Gorgonzola, Parmesan, Emmental, Camembert; with walnuts and honey.",
             "price": 30,
             "allergens": [1, 5, 7, 9],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/1643medium.png"   
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1643medium.png",
+            "croppedImage": "/images/1643medium-removebg-preview.png"
           },
           {
             "id": 6,
@@ -52,7 +57,8 @@
             "description":"Hot Hawaiian Pizza combines pizza sauce, cheese, cooked ham, and pineapple. This crowd-pleasing pizza recipe starts with my homemade pizza crust and is finished with a sprinkle of crispy bacon. It's salty, sweet, cheesy, and undeniably delicious! Hawaiian pizza is underrated.",
             "price": 34,
             "allergens": [1, 5, 7],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/1636medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1636medium.png",
+            "croppedImage": "/images/1636medium-removebg-preview.png"
           },
           {
             "id": 7,
@@ -61,7 +67,8 @@
             "description":"It's an easy thick-style pizza crust with unbeatable flavor. Sweet BBQ sauce, chopped chicken, red onions, a dash of cilantro, and tons of cheese. Though store-bought crust is convenient, I suggest using homemade pizza dough for the BEST flavor. You could also use these toppings on whole wheat pizza dough instead.",
             "price": 37,
             "allergens": [1, 5, 7, 9],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/1640medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1640medium.png",
+            "croppedImage": "/images/1640medium-removebg-preview.png"
           },
           {
             "id": 8,
@@ -70,7 +77,8 @@
             "description":"Product Description. A pizza base topped with tomato sauce, mozzarella cheese, pepperoni and chilli peppers.",
             "price": 35,
             "allergens": [1, 2, 3, 4, 5, 7, 12],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/3537medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/3537medium.png",
+            "croppedImage": "/images/3537medium-removebg-preview.png"
           },
           {
             "id": 9,
@@ -79,7 +87,8 @@
             "description":"Mexican Pizza is filled with seasoned ground beef, refried beans, melty cheese and enchilada sauce stuffed between two flour tortillas. These personal pizzas are a fun twist on the classic! If you love Mexican food and indulging in a warm, gooey slice of pizza on occasion then you are in the right place.",
             "price": 40,
             "allergens": [1, 5, 7, 11],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/1644medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1644medium.png",
+            "croppedImage": "/images/1644medium-removebg-preview.png"
           },
           {
             "id": 10,
@@ -88,7 +97,8 @@
             "description":"So, essentially it's the regular pizza, topped with spicy cheese instead of plain.",
             "price": 32,
             "allergens": [1, 5, 7],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/1935medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/1935medium.png",
+            "croppedImage": "/images/1935medium-removebg-preview.png"
           },
           {
             "id": 11,
@@ -97,7 +107,8 @@
             "description":"A thick, crispy crust topped edge to edge with mozzarella cheese, sliced and diced pepperoni.",
             "price": 34,
             "allergens": [1, 5, 7, 11, 12],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/3534medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/3534medium.png",
+            "croppedImage": "/images/3534medium-removebg-preview.png"
           },
           {
             "id": 12,
@@ -106,7 +117,8 @@
             "description":"Who doesnt love a pizza? With bacon, potato, caramelised onions and dollops of sour cream, these country-style pizzas are a good hearty meal!",
             "price": 35,
             "allergens": [1, 5, 6, 7, 10, 11, 12],
-            "image": "//www.dominos-pizza.ro/gallery/fmobile/3539medium.png"
+            "image": "//www.dominos-pizza.ro/gallery/fmobile/3539medium.png",
+            "croppedImage": "/images/3539medium-removebg-preview.png"
           }
     ],
 
