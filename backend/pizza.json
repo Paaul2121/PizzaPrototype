@@ -12,8 +12,8 @@
           },
           {
             "id": 2,
-            "name": "Light",
-            "ingredients": [ "marinara sauce", "red peppers", "red onions", "corn", "mushrooms" ],
+            "name": "Margherita",
+            "ingredients": [ "marinara sauce", "mozzarella cheese" ],
             "description":"The secret to a crispy pizza with a light and fluffy interior? Start with the right dough: one that has both yeast and baking powder for rise and puff. Then, bake the whole thing on a pre-heated baking stone or steel to create an unbelievably light, crunchy crust. Top this pizza as you wish — everything pairs well with crunch. ",
             "price": 28,
             "allergens": [1, 3, 5, 7],

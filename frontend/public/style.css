@@ -181,7 +181,7 @@ body {
     overflow-x: auto;
     overflow-y: hidden;
     display: inline-flex;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.1);
     backdrop-filter: blur(10px);
     border:  rgba(0,0,0,0.3) 10px solid;
     border-radius: 10px;
@@ -194,11 +194,13 @@ body {
    min-width: 30%;
     height: 95%;
     position: relative;
-    background-color: black;
-    margin: 0px 3px 3px 3px;
+    background-color: transparent;
+    /* margin: 0px 3px 3px 3px; */
     border-radius: 10px;
     top: 5%;
     z-index: 2;
+    margin-left: 20px;
+    margin-right: 20px;
 
 }
 
@@ -217,7 +219,7 @@ body {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: rgba(255,255,255,0);
+    background-color: transparent;
     z-index: 0;
     /* margin: 0px 3px 3px 3px; */
     border-radius: 10px;
@@ -239,3 +241,194 @@ body {
     position: relative;
     z-index: -1;
 }
+
+#pizzaName {
+    font-family: "bradley hand", cursive;
+    color: white;
+    font-size: 40px;
+    position: relative;
+    top: 25%;
+}
+
+#pizzaPrice {
+    font-family: "bradley hand", cursive;
+    color: white;
+    font-size: 40px;
+    position: relative;
+    top: 15%;
+}
+
+#userDetails {
+    position: absolute;
+    top: 20%;
+    left: 70%;
+    width: 350px;
+    height: 600px;
+    border-radius: 7%;
+    background-color: gray;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+
+}
+
+#nameInput {
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    top: 13%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid;
+
+}
+
+#emailInput {
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    top: 36%;
+    color: white;
+}
+
+#cityInput {
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    top: 59%;
+    color: white;
+}
+
+#streetInput {
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    top: 82%;
+    color: white;
+}
+
+#divTransparent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.group {
+    position: relative;
+  }
+  
+  .form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 120px 40px;
+    padding-top: 60px;
+    padding-bottom: 90px;
+    padding-right: 40px;
+    padding-left: 40px;
+    background-color: black;
+    border-radius: 20px;
+    position: absolute;
+    width: 20%;
+    left: 70%;
+    top: 20%;
+  }
+  
+  .form p {
+    padding-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: .5px;
+    color: white;
+  }
+  
+  .container-1 {
+    padding-top: 30px;
+  }
+  
+  .main-input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 185px;
+    border: none;
+    border-bottom: 1px solid #6c6c6c;
+    background: transparent;
+    color: #ffffff;
+  }
+  
+  .main-input:focus {
+    outline: none;
+    border-bottom-color: #e40e1c;
+  }
+  
+  .lebal-email {
+    color: #999999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  
+  .main-input:focus ~ .lebal-email,
+  .main-input:valid ~ .lebal-email {
+    top: -20px;
+    font-size: 14px;
+    color: #ea0c0c;
+  }
+  
+  .highlight-span {
+    position: absolute;
+    height: 60%;
+    width: 0px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  
+  .main-input:focus ~ .highlight-span {
+    -webkit-animation: input-focus 0.3s ease;
+    animation: input-focus 0.3s ease;
+  }
+  
+  @keyframes input-focus {
+    from {
+      background: #fa5454;
+    }
+  
+    to {
+      width: 185px;
+    }
+  }
+  
+  .submit {
+    margin-top: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }

@@ -2,6 +2,7 @@ let root = document.getElementById("root");
 let input = document.getElementById("input");
 let selectButton = document.getElementById("openALG");
 let bigImage = document.getElementById("bigImage");
+let cardButton = document.getElementById("cartHandle");
 let bool = false;
 let allCheckBox;
 let allergenSelected = [];
@@ -26,6 +27,41 @@ const addEl = (
       return el;
 };
 
+let userInfo = () => {
+  let divTransparent = addEl("div", root, "id", "divTransparent");
+  divTransparent.insertAdjacentHTML("beforeend", `
+  <form class="form">
+  <p>Login</p>
+  <div class="group">
+    <input required="true" class="main-input" type="text">
+    <span class="highlight-span"></span>
+    <label class="lebal-email">Name</label>
+  </div>
+  <div class="container-1">
+    <div class="group">
+      <input required="true" class="main-input" type="text">
+      <span class="highlight-span"></span>
+      <label class="lebal-email">Email</label>
+    </div>
+  </div>
+  <div class="container-1">
+    <div class="group">
+      <input required="true" class="main-input" type="text">
+      <span class="highlight-span"></span>
+      <label class="lebal-email">City</label>
+    </div>
+  </div>
+  <div class="container-1">
+    <div class="group">
+      <input required="true" class="main-input" type="text">
+      <span class="highlight-span"></span>
+      <label class="lebal-email">Street</label>
+    </div>
+  </div>
+  <button class="submit">submit</button>
+</form>
+  `)
+}
 
 let orderSchema = {
     id: 1,
@@ -56,7 +92,7 @@ let orderSchema = {
 }
     
     
-    let pizzaList = addEl("div", root, "id", "pizzaList");
+  let pizzaList = addEl("div", root, "id", "pizzaList");
   
   let allPizzas = async (allergenSelected) => {
     let response = await fetch("/api/pizza");
@@ -81,18 +117,19 @@ let orderSchema = {
       })
 
       let pizzaCardImg = addEl("img",pizzaCard,"class", "pizzaCardImg", "src", `${pizza.image}`)
-      let number = addEl("div", pizzaCard)
-      number.innerText = `${pizza.name}`
-      number.style.color = "white"
+      let pizzaName = addEl("p", pizzaButton, "id", "pizzaName");
+      let pizzaPrice = addEl("p", pizzaButton, "id", "pizzaPrice");
+      pizzaName.innerText = pizza.name
+      pizzaPrice.innerText = pizza.price + " LEI";
       }
     }   
     console.log(pizzaList.querySelectorAll("div").length/2)
   }
   
   let selector =  addEl("div", root, "id");
-let counter = 1;
-let firstRenderAllergens = true
-let  allOptions = async () => {
+  let counter = 1;
+  let firstRenderAllergens = true
+  let  allOptions = async () => {
     if(firstRenderAllergens){
         let response = await fetch("/api/allergen");
         let dataObj = await response.json();
@@ -140,6 +177,7 @@ const loadEvent = () =>{
     
     allPizzas([]);
     selectButton.addEventListener('click', select);
+    cardButton.addEventListener('click', userInfo)
 
     
 
