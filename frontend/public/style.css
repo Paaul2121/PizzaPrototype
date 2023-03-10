@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    height:99%;
+    height:100%;
     margin: 0%;
 }
 
@@ -33,7 +33,7 @@ body {
     font-family: 'Lobster Two', cursive !important;
     width: 100vw;
     height: 10%;
-    background-color: red;
+    background-image: linear-gradient(rgb(174, 2, 2) ,black);
     display:flex;
     align-items: center;
 }
@@ -119,7 +119,7 @@ body {
     height: 0px;
     position: absolute;
     left:calc(50% - 150px) ;
-    top: 15%;
+    top: 16%;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -174,16 +174,16 @@ body {
 
 #pizzaList {
     width: 50%;
-    height: 400px;
+    height: 50%;
     position: absolute;
     left: 0;
     bottom: 0;
     overflow-x: auto;
     overflow-y: hidden;
     display: inline-flex;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.1);
     backdrop-filter: blur(10px);
-    border:  rgba(0,0,0,0.3) 10px solid;
+    border:  rgba(0,0,0,0.1) 10px solid;
     border-radius: 10px;
 }
 #pizzaList::-webkit-scrollbar{
@@ -194,11 +194,13 @@ body {
    min-width: 30%;
     height: 95%;
     position: relative;
-    background-color: black;
+    background-color: rgba(0,0,0,0.6);
+    border-color: white;
     margin: 0px 3px 3px 3px;
     border-radius: 10px;
     top: 5%;
     z-index: 2;
+    border-top:50%;
 
 }
 
@@ -219,16 +221,17 @@ body {
     position: absolute;
     background-color: rgba(255,255,255,0);
     z-index: 0;
+    border-color: transparent;
     /* margin: 0px 3px 3px 3px; */
     border-radius: 10px;
 }
 
 .bigImage {
     position: absolute;
-    height: 1100px;
-    width: 1400px;
-    bottom: -35%;
-    right: -30%;
+    scale: 1.7;
+    bottom: -10%;
+    right: -2%;
+    transform: rotate(-20deg);
     border-radius: 50%;
     visibility: hidden;
 }
