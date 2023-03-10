@@ -1,3 +1,8 @@
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: rgba(0,0,0,0.6);
+}
 
 .firstImg {
     left: 0;
@@ -193,6 +198,8 @@ body {
     margin: 0px 3px 3px 3px;
     border-radius: 10px;
     top: 5%;
+    z-index: 2;
+
 }
 
 .pizzaCardImg{
@@ -203,7 +210,32 @@ body {
     top: 3%;
     width: 80%;
     left: 10%;
+    z-index: 1;
 }
 
+#pizzaButton {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(255,255,255,0);
+    z-index: 0;
+    /* margin: 0px 3px 3px 3px; */
+    border-radius: 10px;
+}
 
+.bigImage {
+    position: absolute;
+    height: 1100px;
+    width: 1400px;
+    bottom: -35%;
+    right: -30%;
+    border-radius: 50%;
+    visibility: hidden;
+}
 
+#backgroundImage {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: -1;
+}

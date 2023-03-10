@@ -28,9 +28,19 @@ app.get("/api/allergen", async (req,res) =>{
     res.send(JSON.parse(pizzaList).Allergens)
 })
 
-app.get(["/pizza/list", "/pizza/list/:id"], async (req, res, next) => {
+app.get(["/pizza/list", "/pizza/list/:id", "/api/order"], async (req, res, next) => {
     res.sendFile(path.join(`${__dirname}/../frontend/index.html`));
   });
+
+app.post("api/order", async (req,res) => {
+    let pizzaList = await fileReaderAsync(pizzaPath);
+    let dataObj = (JSON.parse(pizzaList).Pizza);
+    
+
+
+    fileWriterAsync(pizzaPath,JSON.stringify(dataObj, null, 4));
+    
+})
 
 
 app.use(express.static(`${__dirname}/../frontend/public`));
