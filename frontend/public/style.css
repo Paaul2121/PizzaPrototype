@@ -4,6 +4,12 @@ body {
     background-color: rgba(0,0,0,0.6);
 }
 
+#root{
+    background-image: url("./images/fullBCKG.jpeg");
+    background-size:cover;
+   
+}
+
 .firstImg {
     left: 0;
     top: 0;
@@ -33,9 +39,59 @@ body {
     font-family: 'Lobster Two', cursive !important;
     width: 100vw;
     height: 10%;
-    background-image: linear-gradient(rgb(174, 2, 2) ,black);
+    background-image: linear-gradient(rgb(174, 2, 2) , rgb(0,0,0));
     display:flex;
     align-items: center;
+}
+
+#pizzaDetailsHolder{
+    width: 50%;
+    height: 90vh;   
+}
+
+#pizzaDetails{
+    background-color: rgba(0,0,0,0.8);
+    width: 95%;
+    height: 95%;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    display: grid;
+    /* padding:20px; */
+}
+
+#pizzaName{
+    color: white;
+    font-size: 50px;
+
+}
+
+#pizzaPrice{
+    display: flex;
+}
+
+#pizzaBigImgHolder{
+    height: 90vh;
+    width: 50%;
+    position: absolute;
+    right: 0px;
+    bottom:0px
+}
+
+.bigPizzaImg{
+    
+    scale: 2.3;
+    position: absolute;
+    right: 0%;
+    bottom: 20%;
+    transform: rotateX(45deg);
+}
+.cutter{
+    right: -5%;
+    scale: 2.4;
+    position: absolute;
+    bottom: 15%;
+    transform:rotateX(45deg)  ;
 }
 
 #loginHandle:hover{
@@ -249,7 +305,7 @@ body {
   visibility: hidden;
   display: flex;
   max-width: 99%;
-  position: relative;
+  position: absolute;
   margin-left:0.6%;
   margin-top: 10%;
 }
@@ -277,13 +333,16 @@ body {
 .wrapper i:first-child {
   left: 10%;
   display: none;
+  z-index: 1;
 }
 .wrapper i:last-child {
   right: 10%;
+  z-index: 1;
 }
 .carousel {
   display: flex;
   flex-direction: row;
+  z-index: 1;
 }
 .wrapper .carousel {
   font-size: 0px;

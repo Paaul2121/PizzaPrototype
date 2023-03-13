@@ -9,6 +9,7 @@ let selectedPizza = true;
 let carousel = document.querySelector(".carousel");
 let menuButton = document.getElementById("menu");
 let wrapper = document.querySelector(".wrapper");
+let bigPizza;
 
 const addEl = (
   type,
@@ -69,8 +70,14 @@ let allPizzas = async (allergenSelected) => {
         true
       )
     ) {
-      console.log(pizza.croppedImage);
       let pizzaCard = addEl("div", carousel, "class", "pizzaCard");
+
+      pizzaCard.addEventListener("click", () =>{                               ////////////////////
+        wrapper.style.visibility = "hidden";
+        bigPizza.src = `${pizza.croppedImage}`
+
+      })
+
       let pizzaNameHolder = addEl("div", pizzaCard, "class", "pizzaNameHolder");
       let pizzaName = addEl("p", pizzaNameHolder, "class", "pizzaName");
       pizzaName.textContent = pizza.name;
@@ -86,9 +93,6 @@ let allPizzas = async (allergenSelected) => {
         "class",
         "pizzaCardImg"
       );
-      pizzaCard.addEventListener("click", (e) => {
-        console.log("salut");
-      });
     }
   }
   events();
@@ -178,10 +182,38 @@ let menuBTN = () => {
   })
 }
 const loadEvent = () => {
+
+//pizza  image part
+  
+  let pizzaBigImgHolder = addEl("div", root , "id", "pizzaBigImgHolder")
+  addEl("img",pizzaBigImgHolder, "src","/images/cutter.png", "class", "cutter" )
+ bigPizza = addEl("img",pizzaBigImgHolder, "src" , ``, "class","bigPizzaImg");
+
+ //pizza details part
+
+ let pizzaDetailsHolder = addEl("div",root, "id", "pizzaDetailsHolder", "class", "center");
+  let pizzaDetails = addEl("div", pizzaDetailsHolder, "id", "pizzaDetails")
+  let pizzaName = addEl("div",pizzaDetails, "id", "pizzaName", "class", "center")
+  pizzaName.innerText = "PLEASE SELECT A PIZZA FROM THE MENU"
+
+  let pizzaDescription = addEl("div",pizzaDetails, "id", "pizzaDescrition")
+
+  let pizzaIngredients = addEl("div", pizzaDetails, "id", "pizzaIngredients")
+
+  let pizzaPrice = addEl("div", pizzaDetails, "id", "pizzaPrice")
+  let price = addEl("div", pizzaPrice, "id", "price")
+
+  let add = addEl("button", pizzaPrice, "id", "add")
+  let amount = addEl("div", pizzaPrice, "id", "amount")
+  let substract = addEl("button", pizzaPrice, "id", "substract")
+  let addToCart = addEl("button", pizzaPrice, "id", "addToCart")
+
   allPizzas([]);
   menuBTN();
   // events()
   selectButton.addEventListener("click", select);
+
+ 
 };
 
 window.addEventListener("load", loadEvent);
