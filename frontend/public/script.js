@@ -7,6 +7,8 @@ let allCheckBox;
 let allergenSelected = [];
 let selectedPizza = true;
 let carousel = document.querySelector(".carousel");
+let menuButton = document.getElementById("menu");
+let wrapper = document.querySelector(".wrapper");
 
 const addEl = (
   type,
@@ -69,6 +71,9 @@ let allPizzas = async (allergenSelected) => {
     ) {
       console.log(pizza.croppedImage);
       let pizzaCard = addEl("div", carousel, "class", "pizzaCard");
+      let pizzaNameHolder = addEl("div", pizzaCard, "class", "pizzaNameHolder");
+      let pizzaName = addEl("p", pizzaNameHolder, "class", "pizzaName");
+      pizzaName.textContent = pizza.name;
       let pizzaCardImg = addEl(
         "img",
         pizzaCard,
@@ -167,8 +172,15 @@ let events = () => {
     });
   });
 };
+let menuBTN = () => {
+  menuButton.addEventListener("click", () => {
+    wrapper.style.visibility = "visible";
+  })
+}
 const loadEvent = () => {
   allPizzas([]);
+  menuBTN();
+  // events()
   selectButton.addEventListener("click", select);
 };
 

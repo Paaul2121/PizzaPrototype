@@ -246,6 +246,7 @@ body {
   background: #202021;
 }
 .wrapper {
+  visibility: hidden;
   display: flex;
   max-width: 99%;
   position: relative;
@@ -254,7 +255,6 @@ body {
 }
 .wrapper i {
   top: 120%;
-
   height: 44px;
   width: 44px;
   color: #343f4f;
@@ -332,9 +332,9 @@ body {
 }
 .pizzaCardImg{
     position: relative;
-    scale: 0.5;
+    scale: 60%;
     left: -5px;
-    top: 101px;
+    top: 63px;
     transform: rotateX(60deg);
 
 }
@@ -342,4 +342,24 @@ body {
   position: absolute;
     left: 12%;
     top: 90%;
+}
+.pizzaName{
+  color: rgb(255, 255, 255);
+   font-family: 'Tilt Prism', cursive;
+    
+    font-size: 40px;
+}
+.pizzaNameHolder{
+  POSITION: relative;
+    left: 25%;
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+    width: 50%;
+    height: 10%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    top: 6%
+    
 }
