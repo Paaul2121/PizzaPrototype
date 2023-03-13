@@ -10,6 +10,9 @@ let carousel = document.querySelector(".carousel");
 let menuButton = document.getElementById("menu");
 let wrapper = document.querySelector(".wrapper");
 let bigPizza;
+let dataObjpizzas;
+let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaDetailName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
+
 
 const addEl = (
   type,
@@ -60,10 +63,10 @@ let orderSchema = {
 //! pizzza populate 2
 let allPizzas = async (allergenSelected) => {
   let response = await fetch("/api/pizza");
-  let dataObj = await response.json();
+   dataObjpizzas = await response.json();
 
   carousel.innerHTML = "";
-  for (let pizza of dataObj) {
+  for (let pizza of dataObjpizzas) {
     if (
       pizza.allergens.reduce(
         (acc, cur) => (allergenSelected.includes(cur) ? false : acc),
@@ -74,8 +77,17 @@ let allPizzas = async (allergenSelected) => {
 
       pizzaCard.addEventListener("click", () =>{                               ////////////////////
         wrapper.style.visibility = "hidden";
-        bigPizza.src = `${pizza.croppedImage}`
+        bigPizza.src = `${pizza.croppedImage}`;
+        console.log(pizzaDetailName, pizzaDescription)
+        pizzaDetailName.textContent = `PIZZA ${pizza.name}`
+        pizzaDescription.textContent =`DESCRIPTION : ${pizza.description}`;
+        pizzaIngredients.textContent = `INGREDIENTS : ${pizza.ingredients}`;
 
+        addToCart.classList.remove("hidden")
+        substract.classList.remove("hidden")
+        amount.classList.remove("hidden")
+        amount.textContent = 0;
+        add.classList.remove("hidden")
       })
 
       let pizzaNameHolder = addEl("div", pizzaCard, "class", "pizzaNameHolder");
@@ -181,29 +193,26 @@ let menuBTN = () => {
     wrapper.style.visibility = "visible";
   })
 }
-let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
 
 let createDetailElemnts = (pizza) =>{
-  let pizzaDetailsHolder = addEl("div",root, "id", "pizzaDetailsHolder", "class", "center");
-  let pizzaDetails = addEl("div", pizzaDetailsHolder, "id", "pizzaDetails")
-  let pizzaName = addEl("div",pizzaDetails, "id", "pizzaName", "class", "center")
+   pizzaDetailsHolder = addEl("div",root, "id", "pizzaDetailsHolder", "class", "center");
+   pizzaDetails = addEl("div", pizzaDetailsHolder, "id", "pizzaDetails")
+   pizzaDetailName = addEl("div",pizzaDetails, "id", "pizzaName", "class", "center")
 
-  pizza == undefined? pizzaName.innerText = "PLEASE SELECT A PIZZA FROM THE MENU" :  pizzaName.innerText = `${pizza.name}`
+  pizza == undefined? pizzaDetailName.innerText = "PLEASE SELECT A PIZZA FROM THE MENU" :  pizzaDetailName.innerText = `${pizza.name}`
 
-  let pizzaDescription = addEl("div",pizzaDetails, "id", "pizzaDescription")
-  let pizzaIngredients = addEl("div", pizzaDetails, "id", "pizzaIngredients")
-  let pizzaPrice = addEl("div", pizzaDetails, "id", "pizzaPrice")
-  let price = addEl("div", pizzaPrice, "id", "price")
-  let addToCart = addEl("button", pizzaPrice, "id", "addToCart")
+   pizzaDescription = addEl("div",pizzaDetails, "id", "pizzaDescription")
+   pizzaIngredients = addEl("div", pizzaDetails, "id", "pizzaIngredients")
+   pizzaPrice = addEl("div", pizzaDetails, "id", "pizzaPrice")
+   price = addEl("div", pizzaPrice, "id", "price")
+   addToCart = addEl("button", pizzaPrice, "id", "addToCart", "class", "hidden")
   addToCart.innerText = "ADD TO CART"
-  let substract = addEl("button", pizzaPrice, "id", "substract", "class", "addSubstract")
+  substract = addEl("button", pizzaPrice, "id", "substract", "class", "addSubstract hidden")
   substract.innerText ="-"
-  let amount = addEl("div", pizzaPrice, "id", "amount", "class", "center")
+   amount = addEl("div", pizzaPrice, "id", "amount", "class", "center hidden")
   amount.innerText = "0"
-  let add = addEl("button", pizzaPrice, "id", "add", "class", "addSubstract")
+   add = addEl("button", pizzaPrice, "id", "add", "class", "addSubstract hidden")
   add.innerText ="+"
-  pizzaDescription.innerText =" DESCRIPTION : Quattro Formaggi pizza is made from four types of cheese. Positano provides you with Quattro Formaggi rossa pizza, prepared according to the original Positano recipe, on crispy and puffy dough with tomato sauce, cheeses: Mozzarella, Gorgonzola, Parmesan, Emmental, Camembert; with walnuts and honey.";
-  pizzaIngredients.innerText =  " INGREDIENTS : cheese sauce, parmesan cheese, cheddar cheese, brie cheese, mozzarella cheese"
 
 }
 const loadEvent = () => {

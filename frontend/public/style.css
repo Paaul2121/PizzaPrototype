@@ -480,3 +480,11 @@ body {
     top: 6%
     
 }
+
+.visible{
+    visibility: visible;
+}
+
+.hidden{
+    visibility: hidden;
+}
