@@ -181,6 +181,31 @@ let menuBTN = () => {
     wrapper.style.visibility = "visible";
   })
 }
+let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
+
+let createDetailElemnts = (pizza) =>{
+  let pizzaDetailsHolder = addEl("div",root, "id", "pizzaDetailsHolder", "class", "center");
+  let pizzaDetails = addEl("div", pizzaDetailsHolder, "id", "pizzaDetails")
+  let pizzaName = addEl("div",pizzaDetails, "id", "pizzaName", "class", "center")
+
+  pizza == undefined? pizzaName.innerText = "PLEASE SELECT A PIZZA FROM THE MENU" :  pizzaName.innerText = `${pizza.name}`
+
+  let pizzaDescription = addEl("div",pizzaDetails, "id", "pizzaDescription")
+  let pizzaIngredients = addEl("div", pizzaDetails, "id", "pizzaIngredients")
+  let pizzaPrice = addEl("div", pizzaDetails, "id", "pizzaPrice")
+  let price = addEl("div", pizzaPrice, "id", "price")
+  let addToCart = addEl("button", pizzaPrice, "id", "addToCart")
+  addToCart.innerText = "ADD TO CART"
+  let substract = addEl("button", pizzaPrice, "id", "substract", "class", "addSubstract")
+  substract.innerText ="-"
+  let amount = addEl("div", pizzaPrice, "id", "amount", "class", "center")
+  amount.innerText = "0"
+  let add = addEl("button", pizzaPrice, "id", "add", "class", "addSubstract")
+  add.innerText ="+"
+  pizzaDescription.innerText =" DESCRIPTION : Quattro Formaggi pizza is made from four types of cheese. Positano provides you with Quattro Formaggi rossa pizza, prepared according to the original Positano recipe, on crispy and puffy dough with tomato sauce, cheeses: Mozzarella, Gorgonzola, Parmesan, Emmental, Camembert; with walnuts and honey.";
+  pizzaIngredients.innerText =  " INGREDIENTS : cheese sauce, parmesan cheese, cheddar cheese, brie cheese, mozzarella cheese"
+
+}
 const loadEvent = () => {
 
 //pizza  image part
@@ -190,31 +215,9 @@ const loadEvent = () => {
  bigPizza = addEl("img",pizzaBigImgHolder, "src" , ``, "class","bigPizzaImg");
 
  //pizza details part
+  createDetailElemnts();
 
- let pizzaDetailsHolder = addEl("div",root, "id", "pizzaDetailsHolder", "class", "center");
-  let pizzaDetails = addEl("div", pizzaDetailsHolder, "id", "pizzaDetails")
-  let pizzaName = addEl("div",pizzaDetails, "id", "pizzaName", "class", "center")
-  pizzaName.innerText = "PLEASE SELECT A PIZZA FROM THE MENU"
-
-  let pizzaDescription = addEl("div",pizzaDetails, "id", "pizzaDescription")
-  pizzaDescription.innerText =" DESCRIPTION : Quattro Formaggi pizza is made from four types of cheese. Positano provides you with Quattro Formaggi rossa pizza, prepared according to the original Positano recipe, on crispy and puffy dough with tomato sauce, cheeses: Mozzarella, Gorgonzola, Parmesan, Emmental, Camembert; with walnuts and honey.";
-     
-  let pizzaIngredients = addEl("div", pizzaDetails, "id", "pizzaIngredients")
-  pizzaIngredients.innerText =  " INGREDIENTS : cheese sauce, parmesan cheese, cheddar cheese, brie cheese, mozzarella cheese"
-
-  let pizzaPrice = addEl("div", pizzaDetails, "id", "pizzaPrice")
-  let price = addEl("div", pizzaPrice, "id", "price")
-
-  let addToCart = addEl("button", pizzaPrice, "id", "addToCart")
-  addToCart.innerText = "ADD TO CART"
- 
-  let substract = addEl("button", pizzaPrice, "id", "substract", "class", "addSubstract")
-  substract.innerText ="-"
-  let amount = addEl("div", pizzaPrice, "id", "amount", "class", "center")
-  amount.innerText = "1"
-  let add = addEl("button", pizzaPrice, "id", "add", "class", "addSubstract")
-  add.innerText ="+"
-
+  
   allPizzas([]);
   menuBTN();
   // events()
