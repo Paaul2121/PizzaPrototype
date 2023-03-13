@@ -196,17 +196,24 @@ const loadEvent = () => {
   let pizzaName = addEl("div",pizzaDetails, "id", "pizzaName", "class", "center")
   pizzaName.innerText = "PLEASE SELECT A PIZZA FROM THE MENU"
 
-  let pizzaDescription = addEl("div",pizzaDetails, "id", "pizzaDescrition")
-
+  let pizzaDescription = addEl("div",pizzaDetails, "id", "pizzaDescription")
+  pizzaDescription.innerText =" DESCRIPTION : Quattro Formaggi pizza is made from four types of cheese. Positano provides you with Quattro Formaggi rossa pizza, prepared according to the original Positano recipe, on crispy and puffy dough with tomato sauce, cheeses: Mozzarella, Gorgonzola, Parmesan, Emmental, Camembert; with walnuts and honey.";
+     
   let pizzaIngredients = addEl("div", pizzaDetails, "id", "pizzaIngredients")
+  pizzaIngredients.innerText =  " INGREDIENTS : cheese sauce, parmesan cheese, cheddar cheese, brie cheese, mozzarella cheese"
 
   let pizzaPrice = addEl("div", pizzaDetails, "id", "pizzaPrice")
   let price = addEl("div", pizzaPrice, "id", "price")
 
-  let add = addEl("button", pizzaPrice, "id", "add")
-  let amount = addEl("div", pizzaPrice, "id", "amount")
-  let substract = addEl("button", pizzaPrice, "id", "substract")
   let addToCart = addEl("button", pizzaPrice, "id", "addToCart")
+  addToCart.innerText = "ADD TO CART"
+ 
+  let substract = addEl("button", pizzaPrice, "id", "substract", "class", "addSubstract")
+  substract.innerText ="-"
+  let amount = addEl("div", pizzaPrice, "id", "amount", "class", "center")
+  amount.innerText = "1"
+  let add = addEl("button", pizzaPrice, "id", "add", "class", "addSubstract")
+  add.innerText ="+"
 
   allPizzas([]);
   menuBTN();
