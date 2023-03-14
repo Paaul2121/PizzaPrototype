@@ -3,7 +3,8 @@ let secondRoot = document.getElementById("secondRoot");
 let input = document.getElementById("input");
 let selectButton = document.getElementById("openALG");
 let bigImage = document.getElementById("bigImage");
-let cardButton = document.getElementById("cartHandle");
+let cartButton = document.getElementById("cartHandle");
+let cartNumber = document.getElementById("cartNumber")
 let bool = false;
 let allCheckBox;
 let allergenSelected = [];
@@ -20,6 +21,9 @@ let submitted = false;
 let allreadySubmited = false;
 let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaDetailName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
 let currentDate = new Date();
+let cartVisibilityContor = 0;
+let cartBackground, cartList, backFromCart, checkoutHolder, totalPrice, checkoutBtn, cartAlert;
+
 
 
 const addEl = (
@@ -117,8 +121,13 @@ let userInfo = () => {
       orderSchema.customer.address.city = document.getElementById("thirdInput").value;
       orderSchema.customer.address.street = document.getElementById("fourthInput").value;
 
-      //date
+      //date info
       orderSchema.date.year = currentDate.getFullYear()
+      orderSchema.date.month = currentDate.getMonth()+1
+      orderSchema.date.day = currentDate.getDate();
+      orderSchema.date.minute = currentDate.getMinutes();
+      orderSchema.date.hour = currentDate.getHours();
+
       console.log(orderSchema)
       console.log("done");
       eventLogin++;
@@ -144,14 +153,62 @@ let userInfo = () => {
 }
 }
 
+let showCart = () =>{                                               //////////////////////////////////
+  if(cartVisibilityContor % 2 == 0){
+    cartBackground.style.visibility = "visible"
+     totalPrice.innerText = `Total : ${[...cartList.querySelectorAll(".cartListItem")].reduce((acc,cur) => acc + cur.id*1, 0)} lei`
+  }else{
+    cartBackground.style.visibility = "hidden"
+  }
+  cartVisibilityContor ++
+}
+
+let checkoutBtnEvt = () =>{
+  if(submitted){
+    console.log([...cartList.querySelectorAll(".cartListItem")]);
+    [...cartList.querySelectorAll(".cartListItem")].map( order =>  orderSchema.pizzas.push({id:`${order.querySelector(".productName").innerText}` ,amount:`${parseInt(order.querySelector(".productCuantity").innerText)}`}))
+    console.log(orderSchema)
+    
+    console.log("ordered")
+  }else{
+    console.log("need to sing in")
+    cartAlert.style.visibility = "visible"
+   setInterval( () => cartAlert.style.visibility = "hidden", 4000) 
+  
+  }
+}
+
+let createCart = () =>{
+  cartBackground = addEl("div", root, "id", "cartBackground")
+  cartList = addEl("div", cartBackground, "id", "cartList")
+
+ let cartAlertHolder = addEl("div",cartBackground,"id", "cartAlertHolder", "class", "center")
+   cartAlert = addEl("p", cartAlertHolder, "id", "cartAlert",);
+   cartAlert.innerText = "NEED TO SING IN FIRST";
+
+  checkoutHolder = addEl("div", cartBackground, "id", "checkoutHolder")
+
+  totalPrice = addEl("p",checkoutHolder,"id", "totalPrice");
+  totalPrice.innerText = "Total : 0 lei "
+
+   checkoutBtn = addEl("button",checkoutHolder, "id", "checkoutBtn")
+  checkoutBtn.innerText = "CHECKOUT"
+  checkoutBtn.addEventListener("click", checkoutBtnEvt);
+ 
+
+  backFromCart = addEl("button", cartBackground, "id", "backFromCart")
+  backFromCart.innerText = "Back"
+  backFromCart.addEventListener("click",backFromCartEvt)
+}
+
+let backFromCartEvt = (e) =>{
+  cartBackground.style.visibility = "hidden"
+  cartVisibilityContor ++
+}
+
 let orderSchema = {
   id: 1,
-  pizzas: [
-    {
-      id: "",
-      amount: "",
-    },
-  ],
+  pizzas: [],
   date: {
     year: "",
     month: "",
@@ -189,11 +246,11 @@ let allPizzas = async (allergenSelected) => {
         pizzaDetails.style.visibility = "visible";
         wrapper.style.visibility = "hidden";
         bigPizza.src = `${pizza.croppedImage}`;
-        console.log(pizzaDetailName, pizzaDescription)
         pizzaDetailName.textContent = `PIZZA ${pizza.name}`
         pizzaDescription.textContent =`DESCRIPTION : ${pizza.description}`;
         pizzaIngredients.textContent = `INGREDIENTS : ${pizza.ingredients}`;
         price.textContent = `Price : ${pizza.price} Lei`
+        price.id = `${pizza.price}price`
 
         addToCart.classList.remove("hidden")
         substract.classList.remove("hidden")
@@ -280,6 +337,7 @@ let select = async () => {
     bool = false;
   }
 };
+
 let events = () => {
   const carousel = document.querySelector(".carousel"),
     firstImg = carousel.querySelectorAll("img")[0],
@@ -301,6 +359,7 @@ let events = () => {
     });
   });
 };
+
 let menuBTN = () => {
   menuButton.addEventListener("click", () => {
     wrapper.style.visibility = "visible";
@@ -319,8 +378,11 @@ let createDetailElemnts = (pizza) =>{
    pizzaDescription = addEl("div",pizzaDetails, "id", "pizzaDescription")
    pizzaIngredients = addEl("div", pizzaDetails, "id", "pizzaIngredients")
    pizzaPrice = addEl("div", pizzaDetails, "id", "pizzaPrice")
+
    addToCart = addEl("button", pizzaPrice, "id", "addToCart", "class", "hidden")
    addToCart.innerText = "ADD TO CART"
+   addToCart.addEventListener("click", addToCartButton)
+
    price = addEl("div", pizzaPrice, "id", "price")
   substract = addEl("button", pizzaPrice, "id", "substract", "class", "addSubstract hidden")
   substract.innerText ="-"
@@ -343,6 +405,32 @@ let addSubstractEvent = () =>{
   })
 }
 
+let listItemCounter = 0;
+let addToCartButton = () =>{
+  if(amount.innerText != 0 ){
+  let cartListItem = addEl("div", cartList, "class", "cartListItem")
+  let productName = addEl("p", cartListItem, "class", "productName")
+  let productCuantity = addEl("p", cartListItem, "class", "productCuantity")
+
+  cartListItem.insertAdjacentHTML("beforeend", `<i  id="${listItemCounter}trash" class="fa fa-trash-o" style="font-size:24px"></i>`)
+  document.getElementById(`${listItemCounter}trash`).addEventListener("click", (e) =>{
+    e.target.parentElement.remove();
+    cartNumber.innerText = cartNumber.innerText*1 - 1
+    totalPrice.innerText = `Total : ${[...cartList.querySelectorAll(".cartListItem")].reduce((acc,cur) => acc + cur.id*1, 0)} lei`
+  })
+
+  productCuantity.innerText = `${amount.innerText}  x  ${parseInt(price.id)} lei`
+  cartListItem.id = (amount.innerText*1) * (parseInt(price.id)*1)
+
+ 
+
+  cartNumber.innerText = cartNumber.innerText*1 + 1
+
+  productName.innerText = `${pizzaDetailName.innerText}`;
+  listItemCounter++;
+  }
+}
+
 const loadEvent = () => {
 
 //pizza  image part
@@ -354,11 +442,15 @@ const loadEvent = () => {
  //pizza details part
   createDetailElemnts();
   addSubstractEvent();
+  createCart();
+  
+
   loginHandle.addEventListener('click', userInfo)
+  cartButton.addEventListener("click", showCart)
 
   allPizzas([]);
   menuBTN();
-  // events()
+  
   selectButton.addEventListener("click", select);
 
  
