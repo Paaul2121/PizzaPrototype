@@ -152,11 +152,11 @@ padding-bottom: 5px;
 
 #loginHandle:hover{
     background-color: red;
-    top:16px;
+    top:30%;
 }
 #cartHandle:hover{
     background-color: red;
-    top:16px;
+    top:30%;
 }
 
 #logo{
