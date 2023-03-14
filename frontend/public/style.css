@@ -4,6 +4,12 @@ body {
     background-color: rgba(0,0,0,0.6);
 }
 
+#root{
+    background-image: url("./images/fullBCKG.jpeg");
+    background-size:cover;
+   
+}
+
 .firstImg {
     left: 0;
     top: 0;
@@ -24,7 +30,7 @@ html {
 }
 
 body {
-    height:99%;
+    height:100%;
     margin: 0%;
 }
 
@@ -34,10 +40,127 @@ body {
     font-family: 'Lobster Two', cursive !important;
     width: 100vw;
     height: 10%;
-    background-color: red;
+    background-image: linear-gradient(rgb(174, 2, 2) , rgb(0,0,0));
     display:flex;
     align-items: center;
 }
+
+#pizzaDetailsHolder{
+    width: 50%;
+    height: 90vh;   
+}
+
+#pizzaDetails{
+    background-color: rgba(0,0,0,0.8);
+    width: 95%;
+    height: 95%;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    display: grid;
+    visibility: hidden;
+    /* padding:20px; */
+}
+
+#pizzaName{
+    color: white;
+    font-size: 3rem;
+    
+
+}
+
+#pizzaDescription{
+    color: white;
+    font-size: 2rem;
+    padding: 20px; 
+    height: 100px; 
+}
+
+#pizzaIngredients{
+    color: white;
+    font-size: 2rem; 
+    padding: 0px 20px 40px 20px; 
+}
+#pizzaPrice{
+    display: flex;
+    
+    align-items: center;
+}
+
+#addToCart{
+    margin-left: 5%;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    font-family: 'Lobster Two', cursive !important; 
+}
+
+#add:hover,#substract:hover{
+    background-color: lightgreen;
+    padding: 0px;
+    border-bottom: lightgray 3px solid;
+}
+
+.addSubstract{
+color:black;
+height: 50px;
+width: 50px;
+font-size: xx-large;
+border-radius: 50%;
+padding-bottom: 5px;
+}
+#add{
+    right: 10%;
+    position: absolute;
+}
+
+#substract{
+    right: 30%;
+    position: absolute;
+}
+
+#amount{
+    color: #fff;
+    font-size: 50px;
+    width: 5%;
+    height: 5%;
+    position: absolute;
+    right: 20%;
+}
+
+#pizzaBigImgHolder{
+    height: 90vh;
+    width: 50%;
+    position: absolute;
+    right: 0px;
+    bottom:0px
+}
+
+.bigPizzaImg{
+    
+    scale: 2.3;
+    position: absolute;
+    right: 0%;
+    bottom: 20%;
+    transform:rotateX(-20eg)  ;
+    
+}
+.cutter{
+    right: -5%;
+    scale: 2.4;
+    position: absolute;
+    bottom: 15%;
+}
+
+#loginHandle:hover{
+    background-color: red;
+    top:16px;
+}
+#cartHandle:hover{
+    background-color: red;
+    top:16px;
+}
+
 #logo{
     width: 13vh;
     height: 10vh;
@@ -73,13 +196,11 @@ body {
 }
 
 #input {
-    width: 300px;
-    position: absolute;
-    left:calc(50% - 150px) ;
-    top: 13vh;
+    width: 175px;
+    position: relative;
     border-radius: 10px 10px 3px 3px;
-    height: 25px;
-    background-color: aliceblue;
+    height: 50px;
+    background-color: white;
     display: flex;
     justify-content: center;
     
@@ -101,12 +222,13 @@ body {
     animation: anim 0.5s;
     height: 200px;
     position: absolute;
-    left:calc(50% - 150px) ;
-    top: 16%;
+    left:20% ;
+    top: 10%;
     border-radius: 5px;
     overflow: scroll;
     overflow-x: hidden;
     display: grid;
+    z-index: 1;
 }
 
 #selector::-webkit-scrollbar {
@@ -119,8 +241,8 @@ body {
     animation: animClose 0.5s;
     height: 0px;
     position: absolute;
-    left:calc(50% - 150px) ;
-    top: 15%;
+    left:20% ;
+    top: 10%;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -143,13 +265,10 @@ body {
         height: 0px;
     }
 }
-#textALG{
-    position:relative;
-    top:-10px;
-}
+
 
 #openALG{
-    position: absolute;
+    position: relative;
     margin-left:10px ;
     right: 0px;
     background-color: transparent;
@@ -175,7 +294,7 @@ body {
 
 #pizzaList {
     width: 50%;
-    height: 400px;
+    height: 50%;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -184,37 +303,30 @@ body {
     display: inline-flex;
     background-color: rgba(0,0,0,0.1);
     backdrop-filter: blur(10px);
-    border:  rgba(0,0,0,0.3) 10px solid;
+    border:  rgba(0,0,0,0.1) 10px solid;
     border-radius: 10px;
 }
 #pizzaList::-webkit-scrollbar{
     overflow-x: hidden;
 }
 
-#pizzaCard {
-   min-width: 30%;
-    height: 95%;
-    position: relative;
-    background-color: transparent;
-    /* margin: 0px 3px 3px 3px; */
-    border-radius: 10px;
-    top: 5%;
-    z-index: 2;
-    margin-left: 20px;
-    margin-right: 20px;
-
+.pizzaCard{
+    background-image: url("/frontend/public/images/pozacard_pizza.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    
 }
-
 .pizzaCardImg{
-    background-color: white;
-    height: 45%;
-    border-radius: 10px;
     position: relative;
-    top: 3%;
-    width: 80%;
-    left: 10%;
-    z-index: 1;
-}
+    scale: 0.5;
+    left: -18px;
+    top: 101px;
+    transform: rotateX(60deg);
+
+} 
 
 #pizzaButton {
     width: 100%;
@@ -222,16 +334,17 @@ body {
     position: absolute;
     background-color: transparent;
     z-index: 0;
+    border-color: transparent;
     /* margin: 0px 3px 3px 3px; */
     border-radius: 10px;
 }
 
 .bigImage {
     position: absolute;
-    height: 1100px;
-    width: 1400px;
-    bottom: -35%;
-    right: -30%;
+    scale: 1.7;
+    bottom: -10%;
+    right: -2%;
+    transform: rotate(-20deg);
     border-radius: 50%;
     visibility: hidden;
 }
@@ -315,6 +428,143 @@ body {
 }
 
 #divTransparent {
+body {
+  min-height: 100vh;
+  background: #202021;
+}
+.wrapper {
+  visibility: hidden;
+  display: flex;
+  max-width: 99%;
+  position: absolute;
+  margin-left:0.6%;
+  margin-top: 10%;
+  bottom: 35%;
+}
+
+.wrapper i {
+  top: 120%;
+  height: 44px;
+  width: 44px;
+  color: #343f4f;
+  cursor: pointer;
+  font-size: 1.15rem;
+  position: absolute;
+  text-align: center;
+  line-height: 44px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+.wrapper i:active {
+  transform: translateY(-50%) scale(0.9);
+}
+.wrapper i:hover {
+  background: #f2f2f2;
+}
+.wrapper i:first-child {
+  left: 10%;
+  display: none;
+  z-index: 1;
+}
+.wrapper i:last-child {
+  right: 10%;
+  z-index: 1;
+}
+.carousel {
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+}
+.wrapper .carousel {
+  font-size: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+.carousel.dragging {
+  cursor: grab;
+  scroll-behavior: auto;
+}
+.carousel.dragging img {
+  pointer-events: none;
+}
+.carousel > * {
+  height: 340px;
+  object-fit: cover;
+  user-select: none;
+  margin-left: 14px;
+  width: calc(100% / 3);
+}
+.carousel > *:first-child {
+  margin-left: 0px;
+}
+
+@media screen and (max-width: 900px) {
+  .carousel  > * {
+    width: calc(100% / 2);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .carousel  > * {
+    width: 100%;
+  }
+}
+.pizzaCard{
+    background-image: url("/images/pozacard_pizza.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    
+}
+.pizzaCardImg{
+    position: relative;
+    scale: 60%;
+    left: -5px;
+    top: 63px;
+    transform: rotateX(60deg);
+
+}
+#pizzaBTN{
+  position: absolute;
+    left: 12%;
+    top: 90%;
+}
+.pizzaName{
+  color: rgb(255, 255, 255);
+   font-family: 'Tilt Prism', cursive;
+    
+    font-size: 40px;
+}
+.pizzaNameHolder{
+  POSITION: relative;
+    left: 25%;
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+    width: 50%;
+    height: 10%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    top: 6%
+    
+}
+
+.visible{
+    visibility: visible;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.wrapperHandler {
     position: absolute;
     top: 0;
     left: 0;
@@ -432,4 +682,6 @@ body {
     margin-top: 1.2rem;
     padding: 10px 20px;
     border-radius: 10px;
-  }
+    visibility: hidden;
+    z-index: 2;
+}

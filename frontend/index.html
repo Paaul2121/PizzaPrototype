@@ -11,7 +11,9 @@
 
     <script src="/public/script.js"></script>
 	<link rel="stylesheet" href="/public/style.css" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
     <!-- <script src="./client/script.js"></script>
     <link rel="stylesheet" href="./public/style.css"/> -->
     <style>
@@ -20,7 +22,7 @@
     <script defer src="/script.js"></script>
     <link defer rel="stylesheet" href="/style.css" />
     <link defer rel="preconnect" href="https://fonts.googleapis.com">
-    <title>Pizza lui Vito</title>
+    <title>Vito's Pizza</title>
 </head>
 
 <body>
@@ -32,6 +34,10 @@
             <img src="/logo.png" id="logo">
             <button id="menu" class="headerButton">MENU</button>
             <button id="contact" class="headerButton">CONTACT</button>
+            <div id="input" class="center">
+                <p id="textALG">SELECT ALERGENS</p>
+                <button id="openALG"><i id="arrowDown" class='fas fa-caret-down' style='font-size:24px'></i></button>
+            </div>
             <!-- <button id="login">LOG IN</button> -->
             <div id="loginHandle" class="center">                                                 
                 <label style="font-size: 25px;">Login</label>
@@ -40,19 +46,36 @@
             <!-- <button id="cart">CART</button> -->
             <div id = "cartHandle" class="center">
             <label style="font-size: 25px;">Cart</label>
-            <i class='fas fa-shopping-cart' style='font-size:24px; position: relative;'><div style="font-size: 13px; position: absolute; top: 0px; right: 0px; color: white;">0</div></i>
-            
+            <i class='fas fa-shopping-cart' style='font-size:24px; position: relative;'></i>
+            <div style="margin-bottom: 13px; position:relative; color: azure;">0</div>
             </div>
         </div>
-        <div>
-            <div id="input" >
-                <p id="textALG">SELECT ALERGENS</p>
-                <button id="openALG"><i id="arrowDown" class='fas fa-caret-down' style='font-size:24px'></i></button>
-            </div>
-            <!-- <div id="selector"></div> -->
-        </div>
+        <!-- <div>
+           
+            < <div id="selector"></div> -->
+        <!-- </div>
         <img src="" class="bigImage" id="bigImage"/>
         <img src="https://i.etsystatic.com/23444619/r/il/6a2b50/2958612098/il_794xN.2958612098_l692.jpg" id="backgroundImage"/>
+    </div> --> 
+    <div class="wrapperHandler" >
+        <div class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <div class="carousel">
+                <!-- <div class="pizzaCard"><div class="pizzaNameHolder"><p class="pizzaName">Nume</p></div><img src="/images/1629medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+                <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="/images/1632medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+                <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="\images\1636medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+                <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="/images/1629medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+              <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="/images/1629medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+                <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="/images/1632medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+                <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="\images\1636medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+                <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="/images/1629medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+                <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="/images/1629medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+                <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="/images/1632medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+                <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="\images\1636medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div>
+                <div class="pizzaCard"><p class="pizzaName">NUME</p><img src="/images/1629medium-removebg-preview.png" alt="img" draggable="false" class="pizzaCardImg"></div> -->
+            </div>
+            <i id="right" class="fa-solid fa-angle-right"></i>
+        </div> 
     </div>
 </body>
 
