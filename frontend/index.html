@@ -32,22 +32,30 @@
     <div id="root">
         <div id="header">
             <img src="/logo.png" id="logo">
-            <button id="menu" class="headerButton">MENU</button>
-            <button id="contact" class="headerButton">CONTACT</button>
-            <div id="input" class="center">
-                <p id="textALG">SELECT ALERGENS</p>
-                <button id="openALG"><i id="arrowDown" class='fas fa-caret-down' style='font-size:24px'></i></button>
+            
+            <div class="button-borders" id="menuDiv">
+                <button id="menu" class="headerButton">MENU</button>
+            </div>
+            <div class="button-borders" id="contactDiv">
+                <button id="contact" class="headerButton">CONTACT</button>
+            </div>
+            <div id="input" class="center button-borders">
+                <p id="openALG" class="headerButton">SELECT ALERGENS</p>
+                <!-- <button id="openALG" class="headerButton"><i id="arrowDown" class='fas fa-caret-down' style='font-size:24px'></i></button> -->
             </div>
             <!-- <button id="login">LOG IN</button> -->
-            <div id="loginHandle" class="center">                                                 
-                <label style="font-size: 25px;">Login</label>
-            <i class="fa-solid fa-user" style="font-size: 25px;" id="loginLogo"></i> 
+            <div id="loginHandle" class="center button-borders">
+                <div class="headerButton" id="loginHover">
+                <label style="font-size: 20px;position: relative;top: -4px;right: 10px;">Login</label>
+                <i class="fa-solid fa-user" style="font-size: 25px;position: relative;top: -6px;" id="loginLogo"></i> 
+                </div>                                                 
             </div>
             <!-- <button id="cart">CART</button> -->
-            <div id = "cartHandle" class="center">
-            <label style="font-size: 25px;">Cart</label>
-            <i class='fas fa-shopping-cart' style='font-size:24px; position: relative;'></i>
-            <div style="margin-bottom: 13px; position:relative; color: azure;">0</div>
+            <div id = "cartHandle" class="center button-borders">
+            <div class="headerButton" id="cartHover">
+                <i class='fas fa-shopping-cart' style='font-size:24px;position: absolute;top: 8px;left: 31px;'id="carter"></i>
+                <div style="margin-bottom: 13px;position:relative;color: azure;left: 32px;top: -11px;">0</div>
+            </div>
             </div>
         </div>
         <!-- <div>
