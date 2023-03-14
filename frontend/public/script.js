@@ -40,6 +40,7 @@ const addEl = (
 
 let userInfo = () => {
   let divTransparent = addEl("div", root, "id", "divTransparent");
+  divTransparent.style.visibility = "visible";
    divTransparent.insertAdjacentHTML("beforeend", `
   <form class="form">
   <p>Login</p>
@@ -83,16 +84,16 @@ let userInfo = () => {
     console.log(orderSchema)
     console.log("done");
 
-    fetch("/pizza/list", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(orderSchema)
-    }).then(response => response.json())
-      .then(response => {
-      console.log(response);
-    })
+  //   fetch("/pizza/list", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(orderSchema)
+  //   }).then(response => response.json())
+  //     .then(response => {
+  //     console.log(response);
+  //   })
   })
  
 }
@@ -297,20 +298,6 @@ let addSubstractEvent = () =>{
   })
 }
 
-<<<<<<< HEAD
-let submitData = () => {
-    
-}
-
-const loadEvent = () =>{
-    
-    allPizzas([]);
-    selectButton.addEventListener('click', select);
-    cardButton.addEventListener('click', userInfo);
-   
-    
-}
-=======
 const loadEvent = () => {
 
 //pizza  image part
@@ -322,9 +309,8 @@ const loadEvent = () => {
  //pizza details part
   createDetailElemnts();
   addSubstractEvent();
->>>>>>> development
+  cardButton.addEventListener('click', userInfo)
 
-  
   allPizzas([]);
   menuBTN();
   // events()
