@@ -215,6 +215,19 @@ let createDetailElemnts = (pizza) =>{
   add.innerText ="+"
 
 }
+
+let addSubstractEvent = () =>{
+  add.addEventListener("click", () =>{
+    amount.textContent = amount.textContent*1+1
+    console.log(amount.textContent)
+  })
+  substract.addEventListener("click", () =>{
+    if(amount.textContent > 0){
+      amount.textContent = amount.textContent*1-1
+    }
+  })
+}
+
 const loadEvent = () => {
 
 //pizza  image part
@@ -225,6 +238,7 @@ const loadEvent = () => {
 
  //pizza details part
   createDetailElemnts();
+  addSubstractEvent();
 
   
   allPizzas([]);
