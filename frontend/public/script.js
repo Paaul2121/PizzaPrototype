@@ -9,6 +9,7 @@ let allergenSelected = [];
 let selectedPizza = true;
 
 
+
 const addEl = (
   type,
   parent,
@@ -29,38 +30,61 @@ const addEl = (
 
 let userInfo = () => {
   let divTransparent = addEl("div", root, "id", "divTransparent");
-  divTransparent.insertAdjacentHTML("beforeend", `
+   divTransparent.insertAdjacentHTML("beforeend", `
   <form class="form">
   <p>Login</p>
   <div class="group">
-    <input required="true" class="main-input" type="text">
+    <input required="true" class="main-input" id="firstInput" type="text">
     <span class="highlight-span"></span>
     <label class="lebal-email">Name</label>
   </div>
   <div class="container-1">
     <div class="group">
-      <input required="true" class="main-input" type="text">
+      <input required="true" class="main-input" id="secondInput" type="text">
       <span class="highlight-span"></span>
       <label class="lebal-email">Email</label>
     </div>
   </div>
   <div class="container-1">
     <div class="group">
-      <input required="true" class="main-input" type="text">
+      <input required="true" class="main-input" id="thirdInput" type="text">
       <span class="highlight-span"></span>
       <label class="lebal-email">City</label>
     </div>
   </div>
   <div class="container-1">
     <div class="group">
-      <input required="true" class="main-input" type="text">
+      <input required="true" class="main-input" id="fourthInput" type="text">
       <span class="highlight-span"></span>
       <label class="lebal-email">Street</label>
     </div>
   </div>
-  <button class="submit">submit</button>
+  <button class="submit" id="submit" type"submit">Submit</button>
 </form>
   `)
+  
+  let submit = document.getElementById("submit")
+  submit.addEventListener('click', (event) => {
+    event.preventDefault();
+    orderSchema.customer.name = document.getElementById("firstInput").value;
+    orderSchema.customer.email = document.getElementById("secondInput").value;
+    orderSchema.customer.address.city = document.getElementById("thirdInput").value;
+    orderSchema.customer.address.street = document.getElementById("fourthInput").value;
+    console.log(orderSchema)
+    console.log("done");
+
+    fetch("/pizza/list", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(orderSchema)
+    }).then(response => response.json())
+      .then(response => {
+      console.log(response);
+    })
+  })
+ 
 }
 
 let orderSchema = {
@@ -173,14 +197,17 @@ let orderSchema = {
     }
 }
 
+let submitData = () => {
+    
+}
+
 const loadEvent = () =>{
     
     allPizzas([]);
     selectButton.addEventListener('click', select);
-    cardButton.addEventListener('click', userInfo)
-
+    cardButton.addEventListener('click', userInfo);
+   
     
-
 }
 
 window.addEventListener("load",loadEvent)

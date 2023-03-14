@@ -4,6 +4,7 @@ const path = require("path")
 const fileReaderAsync = require("./fileReader")
 const fileWriterAsync = require("./fileWriter")
 const pizzaPath = path.join(`${__dirname}/pizza.json`)
+const userPath = path.join(`${__dirname}/userData.json`)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -32,13 +33,14 @@ app.get(["/pizza/list", "/pizza/list/:id", "/api/order"], async (req, res, next)
     res.sendFile(path.join(`${__dirname}/../frontend/index.html`));
   });
 
-app.post("api/order", async (req,res) => {
-    let pizzaList = await fileReaderAsync(pizzaPath);
-    let dataObj = (JSON.parse(pizzaList).Pizza);
-    
+app.post("/pizza/list", async (req,res) => {
+    let userList = await fileReaderAsync(userPath);
+    let dataObj = JSON.parse(userList);
+    console.log(dataObj);
+    dataObj = req.body;
 
-
-    fileWriterAsync(pizzaPath,JSON.stringify(dataObj, null, 4));
+    fileWriterAsync(userPath,JSON.stringify(dataObj, null, 4));
+    res.send("DONE");
     
 })
 
