@@ -1,4 +1,5 @@
 let root = document.getElementById("root");
+let secondRoot = document.getElementById("secondRoot");
 let input = document.getElementById("input");
 let selectButton = document.getElementById("openALG");
 let bigImage = document.getElementById("bigImage");
@@ -11,10 +12,12 @@ let carousel = document.querySelector(".carousel");
 let menuButton = document.getElementById("menu");
 let wrapper = document.querySelector(".wrapper");
 let wrapperHandler = document.querySelector(".wrapperHandler");
-let loginHandle = document.getElementById("loginHandle")
+let loginHandle = document.getElementById("loginHandle");
+let eventLogin = 0;
 let bigPizza;
 let dataObjpizzas;
-let submitCart = false;
+let submitted = false;
+let allreadySubmited = false;
 let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaDetailName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
 
 
@@ -40,55 +43,85 @@ const addEl = (
   return el;
 };
 
+let ifInputsFilled = () =>{
+  if(document.getElementById("firstInput").value != "" &&
+   document.getElementById("secondInput").value != "" &&
+    document.getElementById("thirdInput").value != "" &&
+     document.getElementById("fourthInput").value != ""){
+   console.log("true")
+    return true;
+  }
+  console.log("false")
+  return false;
+}
+
 let userInfo = () => {
-  let divTransparent = addEl("div", root, "id", "divTransparent");
-  divTransparent.addEventListener('click', (event) => {
-    divTransparent.style.visibility = "hidden";
-  })
-  divTransparent.style.visibility = "visible";
-   divTransparent.insertAdjacentHTML("beforeend", `
-  <form class="form">
-  <p>Login</p>
-  <div class="group">
-    <input required="true" class="main-input" id="firstInput" type="text">
-    <span class="highlight-span"></span>
-    <label class="lebal-email">Name</label>
-  </div>
-  <div class="container-1">
+  if(allreadySubmited == false){
+    
+  if(eventLogin === 0){
+     eventLogin++
+    let divTransparent = addEl("div", root, "id", "divTransparent");
+    divTransparent.addEventListener('click', (event) => {
+      secondRoot.style.visibility = "hidden";
+      divTransparent.style.visibility = "hidden";
+    })
+    secondRoot.style.visibility = "visible";
+    divTransparent.style.visibility = "visible";
+    secondRoot.insertAdjacentHTML("beforeend", `
+    <form class="form">
+    <p>Login</p>
     <div class="group">
-      <input required="true" class="main-input" id="secondInput" type="text">
+      <input required="true" class="main-input" id="firstInput" type="text" required>
       <span class="highlight-span"></span>
-      <label class="lebal-email">Email</label>
+      <label class="lebal-email">Name</label>
     </div>
-  </div>
-  <div class="container-1">
-    <div class="group">
-      <input required="true" class="main-input" id="thirdInput" type="text">
-      <span class="highlight-span"></span>
-      <label class="lebal-email">City</label>
+    <div class="container-1">
+      <div class="group">
+      <input required="true" class="main-input" id="secondInput" type="email" required>
+        <span class="highlight-span"></span>
+        <label class="lebal-email">Email</label>
+      </div>
     </div>
-  </div>
-  <div class="container-1">
-    <div class="group">
+    <div class="container-1">
+      <div class="group">
+        <input required="true" class="main-input" id="thirdInput" type="text">
+        <span class="highlight-span"></span>
+        <label class="lebal-email">City</label>
+      </div>
+    </div>
+    <div class="container-1">
+      <div class="group">
       <input required="true" class="main-input" id="fourthInput" type="text">
       <span class="highlight-span"></span>
-      <label class="lebal-email">Street</label>
-    </div>
-  </div>
-  <button class="submit" id="submit" type"submit">Submit</button>
-</form>
-  `)
-  
-  let submit = document.getElementById("submit")
-  submit.addEventListener('click', (event) => {
-    submitCart = true;
-    event.preventDefault();
-    orderSchema.customer.name = document.getElementById("firstInput").value;
-    orderSchema.customer.email = document.getElementById("secondInput").value;
-    orderSchema.customer.address.city = document.getElementById("thirdInput").value;
-    orderSchema.customer.address.street = document.getElementById("fourthInput").value;
-    console.log(orderSchema)
-    console.log("done");
+        <label class="lebal-email">Street</label>
+      </div>
+      </div>
+      <button class="submit" id="submit" type"submit">Submit</button>
+      </form>
+      `)
+      
+    
+    let submit = document.getElementById("submit")
+    submit.addEventListener('click', (event) => {
+      event.preventDefault();
+      if(ifInputsFilled()){
+      submitted = true;
+      allreadySubmited = true
+      orderSchema.customer.name = document.getElementById("firstInput").value;
+      orderSchema.customer.email = document.getElementById("secondInput").value;
+      orderSchema.customer.address.city = document.getElementById("thirdInput").value;
+      orderSchema.customer.address.street = document.getElementById("fourthInput").value;
+      console.log(orderSchema)
+      console.log("done");
+      eventLogin++;
+      secondRoot.style.visibility = "hidden";
+      divTransparent.style.visibility = "hidden";
+      }
+    })
+  }else{
+    secondRoot.style.visibility = "visible";
+    divTransparent.style.visibility = "visible";
+  }
 
   //   fetch("/pizza/list", {
   //     method: "POST",
@@ -100,8 +133,7 @@ let userInfo = () => {
   //     .then(response => {
   //     console.log(response);
   //   })
-  })
- 
+}
 }
 
 let orderSchema = {

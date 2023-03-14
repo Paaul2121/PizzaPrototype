@@ -607,6 +607,8 @@ body {
     position: absolute;
     width: 20%;
     height: 50%;
+    z-index: 4;
+    bottom: 23%;
   }
   
   .form p {
@@ -627,7 +629,7 @@ body {
     font-size: 16px;
     padding: 10px 10px 10px 5px;
     display: block;
-    width: 185px;
+    width: 250px;
     border: none;
     border-bottom: 1px solid #6c6c6c;
     background: transparent;
@@ -693,6 +695,7 @@ body {
     bottom: 15%;
     width: 200px;
     height: 50px;
+    font-size: 18px;
 }
 
 #divTransparent {
@@ -701,9 +704,12 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     visibility: hidden;
     background-color: rgba(0,0,0,0.7);
+    z-index: 3;
+}
+
+#secondRoot {
+    display: flex;
+    justify-content: center;
 }
