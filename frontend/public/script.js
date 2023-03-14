@@ -19,7 +19,7 @@ let dataObjpizzas;
 let submitted = false;
 let allreadySubmited = false;
 let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaDetailName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
-
+let currentDate = new Date();
 
 
 const addEl = (
@@ -52,12 +52,14 @@ let ifInputsFilled = () =>{
     return true;
   }
   console.log("false")
+  document.getElementById("alert").textContent = "YOU MUST COMPLETE ALL THE FIELDS BEFORE SUBMITING"
+  document.getElementById("alert").style.visibility = "visible"
+  setInterval(  () => document.getElementById("alert").style.visibility = "hidden", 5000)
   return false;
 }
 
 let userInfo = () => {
   if(allreadySubmited == false){
-    
   if(eventLogin === 0){
      eventLogin++
     let divTransparent = addEl("div", root, "id", "divTransparent");
@@ -97,6 +99,7 @@ let userInfo = () => {
       </div>
       </div>
       <button class="submit" id="submit" type"submit">Submit</button>
+      <p id="alert" class="center"></p>
       </form>
       `)
       
@@ -107,10 +110,15 @@ let userInfo = () => {
       if(ifInputsFilled()){
       submitted = true;
       allreadySubmited = true
+
+      //user info
       orderSchema.customer.name = document.getElementById("firstInput").value;
       orderSchema.customer.email = document.getElementById("secondInput").value;
       orderSchema.customer.address.city = document.getElementById("thirdInput").value;
       orderSchema.customer.address.street = document.getElementById("fourthInput").value;
+
+      //date
+      orderSchema.date.year = currentDate.getFullYear()
       console.log(orderSchema)
       console.log("done");
       eventLogin++;
@@ -161,7 +169,7 @@ let orderSchema = {
   },
 };
 
-//! pizzza populate 2
+//! pizzza populate 
 let allPizzas = async (allergenSelected) => {
   let response = await fetch("/api/pizza");
    dataObjpizzas = await response.json();
@@ -217,6 +225,7 @@ let allPizzas = async (allergenSelected) => {
 let selector = addEl("div", root, "id");
 let counter = 1;
 let firstRenderAllergens = true;
+
 let allOptions = async () => {
   if (firstRenderAllergens) {
     let response = await fetch("/api/allergen");
@@ -296,10 +305,7 @@ let menuBTN = () => {
   menuButton.addEventListener("click", () => {
     wrapper.style.visibility = "visible";
     pizzaDetails.style.visibility = "hidden";
-    wrapperHandler.style.visibility = "visible";
-    // pizzaDetailName.textContent = "PLEASE SELECT A PIZZA FROM THE MENU";
-    // pizzaIngredients.style.visibility = "hidden";
-    // pizzaPrice.style.visibility = "hidden";    
+    wrapperHandler.style.visibility = "visible";   
   })
 }
 
