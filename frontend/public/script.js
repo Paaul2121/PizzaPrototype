@@ -297,6 +297,20 @@ let addSubstractEvent = () =>{
   })
 }
 
+<<<<<<< HEAD
+let submitData = () => {
+    
+}
+
+const loadEvent = () =>{
+    
+    allPizzas([]);
+    selectButton.addEventListener('click', select);
+    cardButton.addEventListener('click', userInfo);
+   
+    
+}
+=======
 const loadEvent = () => {
 
 //pizza  image part
@@ -308,6 +322,7 @@ const loadEvent = () => {
  //pizza details part
   createDetailElemnts();
   addSubstractEvent();
+>>>>>>> development
 
   
   allPizzas([]);
