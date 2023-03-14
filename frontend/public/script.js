@@ -9,6 +9,7 @@ let selectedPizza = true;
 let carousel = document.querySelector(".carousel");
 let menuButton = document.getElementById("menu");
 let wrapper = document.querySelector(".wrapper");
+let wrapperHandler = document.querySelector(".wrapperHandler");
 let bigPizza;
 let dataObjpizzas;
 let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaDetailName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
@@ -75,7 +76,9 @@ let allPizzas = async (allergenSelected) => {
     ) {
       let pizzaCard = addEl("div", carousel, "class", "pizzaCard");
 
-      pizzaCard.addEventListener("click", () =>{                               ////////////////////
+      pizzaCard.addEventListener("click", () =>{   
+        wrapperHandler.style.visibility = "hidden";
+        pizzaDetails.style.visibility = "visible";
         wrapper.style.visibility = "hidden";
         bigPizza.src = `${pizza.croppedImage}`;
         console.log(pizzaDetailName, pizzaDescription)
@@ -191,6 +194,11 @@ let events = () => {
 let menuBTN = () => {
   menuButton.addEventListener("click", () => {
     wrapper.style.visibility = "visible";
+    pizzaDetails.style.visibility = "hidden";
+    wrapperHandler.style.visibility = "visible";
+    // pizzaDetailName.textContent = "PLEASE SELECT A PIZZA FROM THE MENU";
+    // pizzaIngredients.style.visibility = "hidden";
+    // pizzaPrice.style.visibility = "hidden";    
   })
 }
 

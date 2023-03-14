@@ -57,6 +57,7 @@ body {
     backdrop-filter: blur(10px);
     position: relative;
     display: grid;
+    visibility: hidden;
     /* padding:20px; */
 }
 
@@ -365,8 +366,9 @@ body {
   position: absolute;
   margin-left:0.6%;
   margin-top: 10%;
- 
+  bottom: 35%;
 }
+
 .wrapper i {
   top: 120%;
   height: 44px;
@@ -487,4 +489,15 @@ body {
 
 .hidden{
     visibility: hidden;
+}
+
+.wrapperHandler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    visibility: hidden;
+    z-index: 2;
 }
