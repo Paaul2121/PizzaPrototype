@@ -2,6 +2,7 @@ let root = document.getElementById("root");
 let input = document.getElementById("input");
 let selectButton = document.getElementById("openALG");
 let bigImage = document.getElementById("bigImage");
+let cardButton = document.getElementById("cartHandle");
 let bool = false;
 let allCheckBox;
 let allergenSelected = [];
@@ -10,9 +11,12 @@ let carousel = document.querySelector(".carousel");
 let menuButton = document.getElementById("menu");
 let wrapper = document.querySelector(".wrapper");
 let wrapperHandler = document.querySelector(".wrapperHandler");
+let loginHandle = document.getElementById("loginHandle")
 let bigPizza;
 let dataObjpizzas;
+let submitCart = false;
 let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaDetailName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
+
 
 
 const addEl = (
@@ -35,6 +39,70 @@ const addEl = (
   if (parent != undefined) parent.appendChild(el);
   return el;
 };
+
+let userInfo = () => {
+  let divTransparent = addEl("div", root, "id", "divTransparent");
+  divTransparent.addEventListener('click', (event) => {
+    divTransparent.style.visibility = "hidden";
+  })
+  divTransparent.style.visibility = "visible";
+   divTransparent.insertAdjacentHTML("beforeend", `
+  <form class="form">
+  <p>Login</p>
+  <div class="group">
+    <input required="true" class="main-input" id="firstInput" type="text">
+    <span class="highlight-span"></span>
+    <label class="lebal-email">Name</label>
+  </div>
+  <div class="container-1">
+    <div class="group">
+      <input required="true" class="main-input" id="secondInput" type="text">
+      <span class="highlight-span"></span>
+      <label class="lebal-email">Email</label>
+    </div>
+  </div>
+  <div class="container-1">
+    <div class="group">
+      <input required="true" class="main-input" id="thirdInput" type="text">
+      <span class="highlight-span"></span>
+      <label class="lebal-email">City</label>
+    </div>
+  </div>
+  <div class="container-1">
+    <div class="group">
+      <input required="true" class="main-input" id="fourthInput" type="text">
+      <span class="highlight-span"></span>
+      <label class="lebal-email">Street</label>
+    </div>
+  </div>
+  <button class="submit" id="submit" type"submit">Submit</button>
+</form>
+  `)
+  
+  let submit = document.getElementById("submit")
+  submit.addEventListener('click', (event) => {
+    submitCart = true;
+    event.preventDefault();
+    orderSchema.customer.name = document.getElementById("firstInput").value;
+    orderSchema.customer.email = document.getElementById("secondInput").value;
+    orderSchema.customer.address.city = document.getElementById("thirdInput").value;
+    orderSchema.customer.address.street = document.getElementById("fourthInput").value;
+    console.log(orderSchema)
+    console.log("done");
+
+  //   fetch("/pizza/list", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(orderSchema)
+  //   }).then(response => response.json())
+  //     .then(response => {
+  //     console.log(response);
+  //   })
+  })
+ 
+}
 
 let orderSchema = {
   id: 1,
@@ -247,8 +315,8 @@ const loadEvent = () => {
  //pizza details part
   createDetailElemnts();
   addSubstractEvent();
+  loginHandle.addEventListener('click', userInfo)
 
-  
   allPizzas([]);
   menuBTN();
   // events()
