@@ -153,6 +153,7 @@ let allPizzas = async (allergenSelected) => {
         pizzaDetailName.textContent = `PIZZA ${pizza.name}`
         pizzaDescription.textContent =`DESCRIPTION : ${pizza.description}`;
         pizzaIngredients.textContent = `INGREDIENTS : ${pizza.ingredients}`;
+        price.textContent = `Price : ${pizza.price} Lei`
 
         addToCart.classList.remove("hidden")
         substract.classList.remove("hidden")
@@ -280,9 +281,9 @@ let createDetailElemnts = (pizza) =>{
    pizzaDescription = addEl("div",pizzaDetails, "id", "pizzaDescription")
    pizzaIngredients = addEl("div", pizzaDetails, "id", "pizzaIngredients")
    pizzaPrice = addEl("div", pizzaDetails, "id", "pizzaPrice")
-   price = addEl("div", pizzaPrice, "id", "price")
    addToCart = addEl("button", pizzaPrice, "id", "addToCart", "class", "hidden")
-  addToCart.innerText = "ADD TO CART"
+   addToCart.innerText = "ADD TO CART"
+   price = addEl("div", pizzaPrice, "id", "price")
   substract = addEl("button", pizzaPrice, "id", "substract", "class", "addSubstract hidden")
   substract.innerText ="-"
    amount = addEl("div", pizzaPrice, "id", "amount", "class", "center hidden")

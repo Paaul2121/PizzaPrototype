@@ -65,8 +65,6 @@ body {
 #pizzaName{
     color: white;
     font-size: 3rem;
-    
-
 }
 
 #pizzaDescription{
@@ -83,12 +81,17 @@ body {
 }
 #pizzaPrice{
     display: flex;
-    
     align-items: center;
+}
+
+#price{
+    color: #ffffff;
+    font-size:x-large;
 }
 
 #addToCart{
     margin-left: 5%;
+    margin-right: 3%;
     height: 50px;
     width: 200px;
     font-size: 20px;
