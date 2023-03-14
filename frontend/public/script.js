@@ -11,8 +11,10 @@ let carousel = document.querySelector(".carousel");
 let menuButton = document.getElementById("menu");
 let wrapper = document.querySelector(".wrapper");
 let wrapperHandler = document.querySelector(".wrapperHandler");
+let loginHandle = document.getElementById("loginHandle")
 let bigPizza;
 let dataObjpizzas;
+let submitCart = false;
 let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaDetailName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
 
 
@@ -40,6 +42,9 @@ const addEl = (
 
 let userInfo = () => {
   let divTransparent = addEl("div", root, "id", "divTransparent");
+  divTransparent.addEventListener('click', (event) => {
+    divTransparent.style.visibility = "hidden";
+  })
   divTransparent.style.visibility = "visible";
    divTransparent.insertAdjacentHTML("beforeend", `
   <form class="form">
@@ -76,6 +81,7 @@ let userInfo = () => {
   
   let submit = document.getElementById("submit")
   submit.addEventListener('click', (event) => {
+    submitCart = true;
     event.preventDefault();
     orderSchema.customer.name = document.getElementById("firstInput").value;
     orderSchema.customer.email = document.getElementById("secondInput").value;
@@ -309,7 +315,7 @@ const loadEvent = () => {
  //pizza details part
   createDetailElemnts();
   addSubstractEvent();
-  cardButton.addEventListener('click', userInfo)
+  loginHandle.addEventListener('click', userInfo)
 
   allPizzas([]);
   menuBTN();
