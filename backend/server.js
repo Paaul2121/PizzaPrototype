@@ -36,12 +36,9 @@ app.get(["/pizza/list", "/pizza/list/:id", "/api/order"], async (req, res, next)
 app.post("/pizza/list", async (req,res) => {
     let userList = await fileReaderAsync(userPath);
     let dataObj = JSON.parse(userList);
-    console.log(dataObj);
-    dataObj = req.body;
-
+    dataObj.Orders.push(req.body);
     fileWriterAsync(userPath,JSON.stringify(dataObj, null, 4));
-    res.send("DONE");
-    
+    res.send("DONE"); 
 })
 
 

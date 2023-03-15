@@ -138,16 +138,7 @@ let userInfo = () => {
     divTransparent.style.visibility = "visible";
   }
 
-  //   fetch("/pizza/list", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(orderSchema)
-  //   }).then(response => response.json())
-  //     .then(response => {
-  //     console.log(response);
-  //   })
+  
 }
 }
 
@@ -184,6 +175,19 @@ let checkoutBtnEvt = () =>{
     [...cartList.querySelectorAll(".cartListItem")].map( order =>  orderSchema.pizzas.push({id:`${order.querySelector(".productName").innerText}` ,amount:`${parseInt(order.querySelector(".productCuantity").innerText)}`}))
     console.log([...cartList.querySelectorAll(".cartListItem")].sort())
     console.log(orderSchema)
+
+      fetch("/pizza/list", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(orderSchema)
+    }).then(response => response.json())
+      .then(response => {
+      console.log(response);
+    })
+
+    location.reload();
 
   }else{
     console.log("need to sing in")

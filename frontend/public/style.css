@@ -165,12 +165,7 @@ padding-bottom: 5px;
     height: 10vh;
     margin-right: 5px;
 }
-.headerButton{
-    font-family: 'Lobster Two', cursive !important;
-    height: 50px;
-    width: 125px;
-    margin: 0px 5px 0px 10px
-}
+
 #loginLogo{
     margin-left: 5px;
 }
