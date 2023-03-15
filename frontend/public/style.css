@@ -63,7 +63,6 @@ body {
   position: relative;
   display: grid;
   visibility: hidden;
-  /* padding:20px; */
 }
 
 #pizzaName {
@@ -151,6 +150,7 @@ body {
   scale: 2.4;
   position: absolute;
   bottom: 15%;
+  visibility: hidden;
 }
 
 #logo {
@@ -254,19 +254,7 @@ body {
   right: 0px;
   height: 30%;
   transition: 0.5s;
-  /* right: 10px;
-    background-color: black;
-    top: 10px;
-    cursor: pointer;
-    height: 10px;
-    border-radius: 100%; */
 }
-
-/* #openALG:hover{
-    background-color:lightgray ;
-    border-radius: 5px;
-} */
-
 #arrowDown:hover {
   font-size: 30px;
 }
@@ -312,7 +300,6 @@ body {
   background-color: transparent;
   z-index: 0;
   border-color: transparent;
-  /* margin: 0px 3px 3px 3px; */
   border-radius: 10px;
 }
 
@@ -680,7 +667,6 @@ body {
 /* ! */
 .headerButton {
   font-family: "Ropa Sans", sans-serif;
-  /* font-family: 'Valorant', sans-serif; */
   color: white;
   cursor: pointer;
   font-size: 13px;
@@ -750,7 +736,6 @@ body {
   top: -0.3em;
   border: 1px solid #0e1822;
   border-bottom: 0px;
-  /* opacity: 0.3; */
 }
 
 .button-borders:after {
@@ -762,7 +747,6 @@ body {
   bottom: -0.3em;
   border: 1px solid #0e1822;
   border-top: 0px;
-  /* opacity: 0.3; */
   z-index: 0;
 }
 
