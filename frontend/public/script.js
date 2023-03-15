@@ -137,12 +137,12 @@ let userInfo = () => {
     secondRoot.style.visibility = "visible";
     divTransparent.style.visibility = "visible";
   }
-
-  
 }
+    secondRoot.style.visibility = "visible";
+    divTransparent.style.visibility = "visible";
 }
 
-let showCart = () =>{                                               //////////////////////////////////
+let showCart = () =>{                                              
   if(cartVisibilityContor % 2 == 0){
     if(cartNumber.innerText == 0){
       let divTransparent = addEl("div", root, "id", "divTransparent");
