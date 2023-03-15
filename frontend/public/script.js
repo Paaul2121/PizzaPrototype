@@ -17,8 +17,6 @@ let dataObjpizzas;
 let submitCart = false;
 let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaDetailName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
 
-
-
 const addEl = (
   type,
   parent,
@@ -120,6 +118,7 @@ let orderSchema = {
 //! pizzza populate 2
 let allPizzas = async (allergenSelected) => {
   let cutter = document.querySelector(".cutter");
+  cutter.setAttribute("draggable", "false");
   let response = await fetch("/api/pizza");
    dataObjpizzas = await response.json();
 
@@ -139,6 +138,7 @@ let allPizzas = async (allergenSelected) => {
         pizzaDetails.style.visibility = "visible";
         wrapper.style.visibility = "hidden";
         bigPizza.src = `${pizza.croppedImage}`;
+        bigPizza.setAttribute("draggable", "false");
         console.log(pizzaDetailName, pizzaDescription)
         pizzaDetailName.textContent = `PIZZA ${pizza.name}`
         pizzaDescription.textContent =`DESCRIPTION : ${pizza.description}`;
