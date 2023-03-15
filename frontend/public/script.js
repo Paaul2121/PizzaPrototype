@@ -24,8 +24,6 @@ let currentDate = new Date();
 let cartVisibilityContor = 0;
 let cartBackground, cartList, backFromCart, checkoutHolder, totalPrice, checkoutBtn, cartAlert;
 
-
-
 const addEl = (
   type,
   parent,
@@ -245,6 +243,8 @@ let orderSchema = {
 
 //! pizzza populate 
 let allPizzas = async (allergenSelected) => {
+  let cutter = document.querySelector(".cutter");
+  cutter.setAttribute("draggable", "false");
   let response = await fetch("/api/pizza");
    dataObjpizzas = await response.json();
 
@@ -258,11 +258,14 @@ let allPizzas = async (allergenSelected) => {
     ) {
       let pizzaCard = addEl("div", carousel, "class", "pizzaCard");
 
-      pizzaCard.addEventListener("click", () =>{   
+      pizzaCard.addEventListener("click", () => {  
+        cutter.style.visibility = "visible";
         wrapperHandler.style.visibility = "hidden";
         pizzaDetails.style.visibility = "visible";
         wrapper.style.visibility = "hidden";
         bigPizza.src = `${pizza.croppedImage}`;
+        bigPizza.setAttribute("draggable", "false");
+        console.log(pizzaDetailName, pizzaDescription)
         pizzaDetailName.textContent = `PIZZA ${pizza.name}`
         pizzaDescription.textContent =`DESCRIPTION : ${pizza.description}`;
         pizzaIngredients.textContent = `INGREDIENTS : ${pizza.ingredients}`;
@@ -361,23 +364,22 @@ let events = () => {
     arrowIcons = document.querySelectorAll(".wrapper i");
 
   const showHideIcons = () => {
-    // showing and hiding prev/next icon according to carousel scroll left value
-    let scrollWidth = carousel.scrollWidth - carousel.clientWidth; // getting max scrollable width
+    let scrollWidth = carousel.scrollWidth - carousel.clientWidth; 
     arrowIcons[0].style.display = carousel.scrollLeft == 0 ? "none" : "block";
     arrowIcons[1].style.display =
       carousel.scrollLeft == scrollWidth ? "none" : "block";
   };
   arrowIcons.forEach((icon) => {
     icon.addEventListener("click", () => {
-      let firstImgWidth = firstImg.clientWidth + 14; // getting first img width & adding 14 margin value
-      // if clicked icon is left, reduce width value from the carousel scroll left else add to it
+      let firstImgWidth = firstImg.clientWidth + 14;
       carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
-      setTimeout(() => showHideIcons(), 60); // calling showHideIcons after 60ms
+      setTimeout(() => showHideIcons(), 60);
     });
   });
 };
 
 let menuBTN = () => {
+  
   menuButton.addEventListener("click", () => {
     wrapper.style.visibility = "visible";
     pizzaDetails.style.visibility = "hidden";
@@ -447,15 +449,18 @@ let addToCartButton = () =>{
   }
 }
 
+let logoBTN = () => {
+  let logo = document.querySelector("#logo")
+  logo.style.cursor = "pointer";
+  logo.style.draggable = "false";
+  logo.addEventListener("click", () => {
+    window.location.reload();
+   })
+}
 const loadEvent = () => {
-
-//pizza  image part
-  
   let pizzaBigImgHolder = addEl("div", root , "id", "pizzaBigImgHolder")
   addEl("img",pizzaBigImgHolder, "src","/images/cutter.png", "class", "cutter" )
  bigPizza = addEl("img",pizzaBigImgHolder, "src" , ``, "class","bigPizzaImg");
-
- //pizza details part
   createDetailElemnts();
   addSubstractEvent();
   createCart();
@@ -466,7 +471,7 @@ const loadEvent = () => {
 
   allPizzas([]);
   menuBTN();
-  
+  logoBTN()
   selectButton.addEventListener("click", select);
 
  
