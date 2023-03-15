@@ -137,17 +137,6 @@ let userInfo = () => {
     secondRoot.style.visibility = "visible";
     divTransparent.style.visibility = "visible";
   }
-
-  //   fetch("/pizza/list", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(orderSchema)
-  //   }).then(response => response.json())
-  //     .then(response => {
-  //     console.log(response);
-  //   })
 }
 }
 
@@ -398,15 +387,18 @@ let createDetailElemnts = (pizza) =>{
    pizzaIngredients = addEl("div", pizzaDetails, "id", "pizzaIngredients")
    pizzaPrice = addEl("div", pizzaDetails, "id", "pizzaPrice")
 
-   addToCart = addEl("button", pizzaPrice, "id", "addToCart", "class", "hidden")
+   addToCart = addEl("button", pizzaPrice, "id", "addToCart", "class", "headerButton")
    addToCart.innerText = "ADD TO CART"
    addToCart.addEventListener("click", addToCartButton)
 
    price = addEl("div", pizzaPrice, "id", "price")
+
   substract = addEl("button", pizzaPrice, "id", "substract", "class", "addSubstract hidden")
   substract.innerText ="-"
+  
    amount = addEl("div", pizzaPrice, "id", "amount", "class", "center hidden")
   amount.innerText = "0"
+
    add = addEl("button", pizzaPrice, "id", "add", "class", "addSubstract hidden")
   add.innerText ="+"
 

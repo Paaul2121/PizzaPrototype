@@ -93,20 +93,12 @@ body {
     font-size:x-large;
 }
 
-#addToCart{
-    margin-left: 5%;
-    margin-right: 3%;
-    height: 50px;
-    width: 200px;
-    font-size: 20px;
-    font-family: 'Lobster Two', cursive !important; 
-    cursor: pointer;
-}
+
 
 #add:hover,#substract:hover{
-    background-color: lightgreen;
+    background-color: gray;
     padding: 0px;
-    border-bottom: lightgray 3px solid;
+    border: black solid;
 }
 
 .addSubstract{
@@ -343,42 +335,8 @@ padding-bottom: 5px;
   margin-left: 5%;
   height: 50px;
   width: 200px;
-  font-size: 20px;
-  font-family: "Lobster Two", cursive !important;
-}
-
-#add:hover,
-#substract:hover {
-  background-color: lightgreen;
-  padding: 0px;
-  border-bottom: lightgray 3px solid;
-}
-
-.addSubstract {
-  color: black;
-  height: 50px;
-  width: 50px;
-  font-size: xx-large;
-  border-radius: 50%;
-  padding-bottom: 5px;
-}
-#add {
-  right: 10%;
-  position: absolute;
-}
-
-#substract {
-  right: 30%;
-  position: absolute;
-}
-
-#amount {
-  color: #fff;
-  font-size: 50px;
-  width: 5%;
-  height: 5%;
-  position: absolute;
-  right: 20%;
+  font-size: 40%;
+  margin-right: 3%;
 }
 
 #pizzaBigImgHolder {
@@ -542,33 +500,6 @@ padding-bottom: 5px;
   left: -18px;
   top: 101px;
   transform: rotateX(60deg);
-}
-
-#pizzaButton {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: transparent;
-  z-index: 0;
-  border-color: transparent;
-  border-radius: 10px;
-}
-
-.bigImage {
-  position: absolute;
-  scale: 1.7;
-  bottom: -10%;
-  right: -2%;
-  transform: rotate(-20deg);
-  border-radius: 50%;
-  visibility: hidden;
-}
-
-#backgroundImage {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  z-index: -1;
 }
 
 #pizzaName {
