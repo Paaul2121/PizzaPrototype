@@ -160,15 +160,6 @@ padding-bottom: 5px;
     bottom: 15%;
 }
 
-#loginHandle:hover{
-    background-color: red;
-    top:30%;
-}
-#cartHandle:hover{
-    background-color: red;
-    top:30%;
-}
-
 #logo{
     width: 13vh;
     height: 10vh;
@@ -180,38 +171,8 @@ padding-bottom: 5px;
     width: 125px;
     margin: 0px 5px 0px 10px
 }
-#loginHandle{
-    position: absolute;
-    right: 0px;
-    width: 100px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: brown;
-    margin-right: 10px;
-}
 #loginLogo{
     margin-left: 5px;
-}
-
-#cartHandle{
-    width: 100px;
-    height: 40px;
-    position: absolute;
-    right: 115px;
-    border-radius: 10px;
-    background-color: brown;
-    
-}
-
-#input {
-    width: 175px;
-    position: relative;
-    border-radius: 10px 10px 3px 3px;
-    height: 50px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    
 }
 
 .checkboxOption{
@@ -275,20 +236,6 @@ padding-bottom: 5px;
 }
 
 
-#openALG{
-    position: relative;
-    margin-left:10px ;
-    right: 0px;
-    background-color: transparent;
-    border: transparent;
-    transition: 0.5s;
-    /* right: 10px;
-    background-color: black;
-    top: 10px;
-    cursor: pointer;
-    height: 10px;
-    border-radius: 100%; */
-}
 
 #openALG:hover{
     background-color:lightgray ;
