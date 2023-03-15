@@ -1121,7 +1121,9 @@ body {
     height: 70%;
     display: flex;
     justify-content: center;
-    background-color: white;
+    background-color: rgb(0,0,0, 1);
+    background: linear-gradient( rgba(0,0,0,1) 0%, rgb(50,50,50) 50%, rgb(0,0,0) 100%);
+    /* background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgb(88,88,88) 50%, rgba(0,0,0,1) 100%); */
     visibility: hidden;
     position: absolute;
     bottom: 20%;
@@ -1140,14 +1142,14 @@ body {
     height: 65px;
     width: 100%;
     border-bottom: 1px solid;
-    color: rgba(0,0,0,0.2);
+    color: rgba(255, 255 ,255, 0.5);
 }
 
 .sadPizzaP1 {
     position: absolute;
     width: 500px;
     height: 80px;
-    color: black;
+    color: white;
     bottom: 7%;
     font-size: 39px;
 }
@@ -1156,7 +1158,7 @@ body {
     position: absolute;
     width: 600px;
     height: 80px;
-    color: black;
+    color: white;
     bottom: 2%;
     right: 8%;
     font-size: 20px;

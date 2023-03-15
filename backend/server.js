@@ -41,6 +41,12 @@ app.post("/pizza/list", async (req,res) => {
     res.send("DONE"); 
 })
 
+app.get("/pizza/orders", async (req,res) => {
+    let userList = await fileReaderAsync(userPath);
+    let dataObj = JSON.parse(userList);
+    res.send(dataObj);
+})
+
 
 app.use(express.static(`${__dirname}/../frontend/public`));
 
