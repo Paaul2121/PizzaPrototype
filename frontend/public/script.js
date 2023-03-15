@@ -155,8 +155,25 @@ let userInfo = () => {
 
 let showCart = () =>{                                               //////////////////////////////////
   if(cartVisibilityContor % 2 == 0){
+    if(cartNumber.innerText == 0){
+      let divTransparent = addEl("div", root, "id", "divTransparent");
+      let cartTransparentDiv = addEl("div", divTransparent, "class", "cartTransparentDiv");
+      divTransparent.addEventListener('click', (event) => {
+        divTransparent.style.visibility = "hidden";
+        cartTransparentDiv.style.visibility ="hidden";
+      })
+      divTransparent.style.visibility = "visible";
+      cartTransparentDiv.style.visibility = "visible";
+      cartTransparentDiv.insertAdjacentHTML("afterbegin", `<div class="sadPizzaHeader"></div>`)
+      cartTransparentDiv.insertAdjacentHTML("beforeend", 
+      `<img class="sadImg" src="https://www.jerryspizza.ro/_next/static/media/sad_pizza.3aa9f33f.svg" bottom="200px" />`)
+      cartTransparentDiv.insertAdjacentHTML("beforeend", `<p class="sadPizzaP1">Nu se afla niciun produs in cos.</p>`)
+      cartTransparentDiv.insertAdjacentHTML("beforeend", `<p class="sadPizzaP2">Adauga un produs in <strong>Cosul de cumparaturi</strong> si plaseaza comanda.</p>`)
+      cartVisibilityContor ++
+    }else{
     cartBackground.style.visibility = "visible"
      totalPrice.innerText = `Total : ${[...cartList.querySelectorAll(".cartListItem")].reduce((acc,cur) => acc + cur.id*1, 0)} lei`
+    }
   }else{
     cartBackground.style.visibility = "hidden"
   }
@@ -167,9 +184,9 @@ let checkoutBtnEvt = () =>{
   if(submitted){
     console.log([...cartList.querySelectorAll(".cartListItem")]);
     [...cartList.querySelectorAll(".cartListItem")].map( order =>  orderSchema.pizzas.push({id:`${order.querySelector(".productName").innerText}` ,amount:`${parseInt(order.querySelector(".productCuantity").innerText)}`}))
+    console.log([...cartList.querySelectorAll(".cartListItem")].sort())
     console.log(orderSchema)
-    
-    console.log("ordered")
+
   }else{
     console.log("need to sing in")
     cartAlert.style.visibility = "visible"
@@ -396,7 +413,6 @@ let createDetailElemnts = (pizza) =>{
 let addSubstractEvent = () =>{
   add.addEventListener("click", () =>{
     amount.textContent = amount.textContent*1+1
-    console.log(amount.textContent)
   })
   substract.addEventListener("click", () =>{
     if(amount.textContent > 0){

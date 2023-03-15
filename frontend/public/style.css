@@ -712,6 +712,8 @@ body {
 }
 
 #divTransparent {
+    display: flex;
+    justify-content: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -804,4 +806,52 @@ body {
     font-size: large;
     position: relative;
     height: 10px;
+}
+
+
+/* epty cart message */
+.cartTransparentDiv{
+    width: 40%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    visibility: hidden;
+    position: absolute;
+    bottom: 20%;
+}
+
+.sadImg {
+    position: absolute;
+    display: flex;
+    z-index: 4;
+    height: 65%;
+    top: 13%;
+}
+
+.sadPizzaHeader {
+    position: absolute;
+    height: 65px;
+    width: 100%;
+    border-bottom: 1px solid;
+    color: rgba(0,0,0,0.2);
+}
+
+.sadPizzaP1 {
+    position: absolute;
+    width: 500px;
+    height: 80px;
+    color: black;
+    bottom: 7%;
+    font-size: 39px;
+}
+
+.sadPizzaP2 {
+    position: absolute;
+    width: 600px;
+    height: 80px;
+    color: black;
+    bottom: 2%;
+    right: 8%;
+    font-size: 20px;
 }
