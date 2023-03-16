@@ -447,11 +447,11 @@ let contactInfo = () => {
   let contactSubmit = document.getElementById("contactSubmit");
   contactSubmit.addEventListener("click", (event) => {
 
-    userCommentSchema.FirstName = document.getElementById("input1");
-    userCommentSchema.LastName = document.getElementById("input2");
-    userCommentSchema.Email = document.getElementById("input3");
-    userCommentSchema.Subject = document.getElementById("input4");
-    userCommentSchema.Message = document.getElementById("input5");
+    userCommentSchema.FirstName = document.getElementById("input1").value;
+    userCommentSchema.LastName = document.getElementById("input2").value;
+    userCommentSchema.Email = document.getElementById("input3").value;
+    userCommentSchema.Subject = document.getElementById("input4").value;
+    userCommentSchema.Message = document.getElementById("input5").value;
 
     fetch("/pizza/list/comments", {
       method: "POST",
