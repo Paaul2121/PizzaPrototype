@@ -1,5 +1,36 @@
 {
     "Orders": [
-       
+        {
+            "id": 1,
+            "pizzas": [
+                {
+                    "id": "PIZZA Capriciosa",
+                    "amount": "2"
+                },
+                {
+                    "id": "PIZZA Capriciosa",
+                    "amount": "2"
+                },
+                {
+                    "id": "PIZZA Capriciosa",
+                    "amount": "2"
+                }
+            ],
+            "date": {
+                "year": 2023,
+                "month": 3,
+                "day": 16,
+                "hour": 19,
+                "minute": 41
+            },
+            "customer": {
+                "name": "agr",
+                "email": "rge",
+                "address": {
+                    "city": "rgea",
+                    "street": "rgea"
+                }
+            }
+        }
     ]
 }

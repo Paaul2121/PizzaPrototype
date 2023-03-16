@@ -176,12 +176,12 @@ let createCart = () =>{
   totalPrice = addEl("p",checkoutHolder,"id", "totalPrice");
   totalPrice.innerText = "Total : 0 lei "
 
-   checkoutBtn = addEl("button",checkoutHolder, "id", "checkoutBtn")
+   checkoutBtn = addEl("button",checkoutHolder, "id", "checkoutBtn", "class", "headerButton")
   checkoutBtn.innerText = "CHECKOUT"
   checkoutBtn.addEventListener("click", checkoutBtnEvt);
  
 
-  backFromCart = addEl("button", cartBackground, "id", "backFromCart")
+  backFromCart = addEl("button", cartBackground, "id", "backFromCart","class", "headerButton")
   backFromCart.innerText = "Back"
   backFromCart.addEventListener("click",backFromCartEvt)
 }
