@@ -708,19 +708,19 @@ body {
 .wrapperHandler {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -0.1%;
   width: 100vw;
   height: 100vh;
   visibility: hidden;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 2;
+  z-index: -2;
 }
 
 .group {
   position: relative;
 }
 
-.form {
+.contactForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -745,9 +745,39 @@ body {
   position: absolute;
   width: 20%;
   height: 50%;
+  z-index: 4;
 }
 
-.form p {
+.loginForm {
+  top: 17%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border: 1px solid white;
+  padding: 120px 40px;
+  padding-top: 60px;
+  padding-bottom: 90px;
+  padding-right: 40px;
+  padding-left: 40px;
+  background-color: black;
+  border-radius: 20px;
+  position: absolute;
+  width: 20%;
+  height: 50%;
+  z-index: 3;
+}
+
+.loginForm p {
   position: absolute;
   top: 8%;
   padding-bottom: 20px;
@@ -820,44 +850,7 @@ body {
     width: 185px;
   }
 }
-  .form {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    border: 1px solid white;
-    padding: 120px 40px;
-    padding-top: 60px;
-    padding-bottom: 90px;
-    padding-right: 40px;
-    padding-left: 40px;
-    background-color: black;
-    border-radius: 20px;
-    position: absolute;
-    width: 20%;
-    height: 50%;
-    z-index: 4;
-    bottom: 23%;
-  }
   
-  .form p {
-    position: absolute;
-    top: 8%;
-    padding-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: .5px;
-    color: white;
-  }
   
   .container-1 {
     padding-top: 30px;
@@ -948,7 +941,7 @@ body {
 
 }
 
-#divTransparent {
+.divTransparent {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -958,12 +951,17 @@ body {
     height: 100vh;
     visibility: hidden;
     background-color: rgba(0,0,0,0.7);
-    z-index: 3;
+    z-index: 2;
 }
 
 #secondRoot {
     display: flex;
     justify-content: center;
+}
+
+#thirdRoot {
+  display: flex;
+  justify-content: center;
 }
 
 #cartBackground{
@@ -1108,18 +1106,6 @@ body {
   height: 50px;
 }
 
-#divTransparent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  background-color: rgba(0, 0, 0, 0.7);
-}
 
 /* ! */
 .headerButton {
@@ -1227,4 +1213,113 @@ body {
   flex-direction: row;
   height: 30%;
   width: 78px;
+}
+
+#contactInfo {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  top: 20%;
+  left: 20%;
+  max-width: 1200px;
+  background-color: rgba(0,0,0,0);
+  font-size: 30px;
+  color: white
+}
+
+#contactFormButton {
+  position: absolute;
+  left: 0%;
+  top: 60%;
+  width: 260px;
+  height: 70px;
+  font-size: 20px;
+  text-decoration: underline;
+  z-index: 3;
+}
+
+#contactTransparentDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+#contactForm {
+  visibility : hidden;
+  width: 1200px;
+  height: 530px;
+  bottom: 10%;
+}
+
+#contactSubmit {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 170px;
+  height: 80px;
+  font-size: 23px;
+  text-decoration: underline;
+}
+
+.contactForm p {
+  position: absolute;
+  top: 4%;
+  padding-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+#input1 {
+  width: 700px;
+}
+
+#input2 {
+  width: 700px;
+}
+
+#input3 {
+  width: 700px;
+}
+
+#input4 {
+  width: 700px;
+}
+
+#input5 {
+  width: 700px;
+}
+
+#backSubmit {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  width: 170px;
+  height: 80px;
+  font-size: 23px;
+  text-decoration: underline;
+}
+
+#submitLogin {
+  bottom: -20%;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+#backSubmit2 {
+  position: absolute;
+  bottom: 5%;
+  width: 200px;
+  height:50px;
+  font-size: 18px;
+  text-decoration: underline;
 }
