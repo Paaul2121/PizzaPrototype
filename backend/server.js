@@ -5,6 +5,7 @@ const fileReaderAsync = require("./fileReader")
 const fileWriterAsync = require("./fileWriter")
 const pizzaPath = path.join(`${__dirname}/pizza.json`)
 const userPath = path.join(`${__dirname}/userData.json`)
+const userCommentsPath = path.join(`${__dirname}/userComments.json`)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -38,6 +39,16 @@ app.post("/pizza/list", async (req,res) => {
     let dataObj = JSON.parse(userList);
     dataObj.Orders.push(req.body);
     fileWriterAsync(userPath,JSON.stringify(dataObj, null, 4));
+    res.send("DONE"); 
+})
+
+app.post("/pizza/list/comments", async (req,res) => {
+    let userComments = await fileReaderAsync(userCommentsPath);
+    let dataObj = JSON.parse(userComments);
+    dataObj.Comments.push(req.body);
+    console.log(dataObj.Comments);
+    console.log(req.body);
+    fileWriterAsync(userCommentsPath,JSON.stringify(dataObj, null, 4));
     res.send("DONE"); 
 })
 

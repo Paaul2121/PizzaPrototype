@@ -1,5 +1,6 @@
 let root = document.getElementById("root");
 let secondRoot = document.getElementById("secondRoot");
+let thirdRoot = document.getElementById("thirdRoot");
 let input = document.getElementById("input");
 let selectButton = document.getElementById("openALG");
 let bigImage = document.getElementById("bigImage");
@@ -19,10 +20,12 @@ let bigPizza;
 let dataObjpizzas;
 let submitted = false;
 let allreadySubmited = false;
-let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaDetailName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract;
+let pizzaBigImgHolder,pizzaDetailsHolder,pizzaDetails,pizzaDetailName,pizzaDescription,pizzaIngredients,pizzaPrice,price,addToCart,add,amount,substract, contactDiv, divTransparentContact;
 let currentDate = new Date();
 let cartVisibilityContor = 0;
 let cartBackground, cartList, backFromCart, checkoutHolder, totalPrice, checkoutBtn, cartAlert;
+let contactButton = document.getElementById("contact");
+let contactForm = document.getElementById("contactForm");
 
 const addEl = (
   type,
@@ -61,52 +64,18 @@ let ifInputsFilled = () =>{
 }
 
 let userInfo = () => {
+
   if(allreadySubmited == false){
   if(eventLogin === 0){
      eventLogin++
-    let divTransparent = addEl("div", root, "id", "divTransparent");
-    divTransparent.addEventListener('click', (event) => {
-      secondRoot.style.visibility = "hidden";
-      divTransparent.style.visibility = "hidden";
+    let divTransparentLogin = document.getElementById("divTransparentLogin");
+    let backButton = document.getElementById("backSubmit2");
+    divTransparentLogin.style.visibility = "visible";
+    backButton.addEventListener('click', (event) => {
+      divTransparentLogin.style.visibility = "hidden";
     })
-    secondRoot.style.visibility = "visible";
-    divTransparent.style.visibility = "visible";
-    secondRoot.insertAdjacentHTML("beforeend", `
-    <form class="form">
-    <p>Login</p>
-    <div class="group">
-      <input required="true" class="main-input" id="firstInput" type="text" required>
-      <span class="highlight-span"></span>
-      <label class="lebal-email">Name</label>
-    </div>
-    <div class="container-1">
-      <div class="group">
-      <input required="true" class="main-input" id="secondInput" type="email" required>
-        <span class="highlight-span"></span>
-        <label class="lebal-email">Email</label>
-      </div>
-    </div>
-    <div class="container-1">
-      <div class="group">
-        <input required="true" class="main-input" id="thirdInput" type="text">
-        <span class="highlight-span"></span>
-        <label class="lebal-email">City</label>
-      </div>
-    </div>
-    <div class="container-1">
-      <div class="group">
-      <input required="true" class="main-input" id="fourthInput" type="text">
-      <span class="highlight-span"></span>
-        <label class="lebal-email">Street</label>
-      </div>
-      </div>
-      <button class="submit" id="submit" type"submit">Submit</button>
-      <p id="alert" class="center"></p>
-      </form>
-      `)
-      
     
-    let submit = document.getElementById("submit")
+    let submit = document.getElementById("submitLogin")
     submit.addEventListener('click', (event) => {
       event.preventDefault();
       if(ifInputsFilled()){
@@ -129,29 +98,26 @@ let userInfo = () => {
       console.log(orderSchema)
       console.log("done");
       eventLogin++;
-      secondRoot.style.visibility = "hidden";
-      divTransparent.style.visibility = "hidden";
+      divTransparentLogin.style.visibility = "hidden";
       }
     })
   }else{
-    secondRoot.style.visibility = "visible";
-    divTransparent.style.visibility = "visible";
+    divTransparentLogin.style.visibility = "visible";
+    console.log("visible");
   }
 }
-    secondRoot.style.visibility = "visible";
-    divTransparent.style.visibility = "visible";
 }
 
 let showCart = () =>{                                              
   if(cartVisibilityContor % 2 == 0){
     if(cartNumber.innerText == 0){
-      let divTransparent = addEl("div", root, "id", "divTransparent");
-      let cartTransparentDiv = addEl("div", divTransparent, "class", "cartTransparentDiv");
-      divTransparent.addEventListener('click', (event) => {
-        divTransparent.style.visibility = "hidden";
+      let divTransparentSadPizza = addEl("div", root, "class", "divTransparent");
+      let cartTransparentDiv = addEl("div", divTransparentSadPizza, "class", "cartTransparentDiv");
+      divTransparentSadPizza.addEventListener('click', (event) => {
+        divTransparentSadPizza.style.visibility = "hidden";
         cartTransparentDiv.style.visibility ="hidden";
       })
-      divTransparent.style.visibility = "visible";
+      divTransparentSadPizza.style.visibility = "visible";
       cartTransparentDiv.style.visibility = "visible";
       cartTransparentDiv.insertAdjacentHTML("afterbegin", `<div class="sadPizzaHeader"></div>`)
       cartTransparentDiv.insertAdjacentHTML("beforeend", 
@@ -164,7 +130,7 @@ let showCart = () =>{
      totalPrice.innerText = `Total : ${[...cartList.querySelectorAll(".cartListItem")].reduce((acc,cur) => acc + cur.id*1, 0)} lei`
     }
   }else{
-    cartBackground.style.visibility = "hidden"
+    cartBackground.style.visibility = "hidden";
   }
   cartVisibilityContor ++
 }
@@ -224,6 +190,14 @@ let backFromCartEvt = (e) =>{
   cartBackground.style.visibility = "hidden"
   cartVisibilityContor ++
 }
+
+let userCommentSchema = {
+  FirstName: "",
+  LastName: "",
+  Email: "",
+  Subject: "",
+  Message: ""
+};
 
 let orderSchema = {
   id: 1,
@@ -388,6 +362,8 @@ let menuBTN = () => {
     wrapper.style.visibility = "visible";
     pizzaDetails.style.visibility = "hidden";
     wrapperHandler.style.visibility = "visible";   
+    contactDiv.style.visibility = "hidden";
+    divTransparentContact.style.visibility = "hidden";
   })
 }
 
@@ -402,7 +378,8 @@ let createDetailElemnts = (pizza) =>{
    pizzaIngredients = addEl("div", pizzaDetails, "id", "pizzaIngredients")
    pizzaPrice = addEl("div", pizzaDetails, "id", "pizzaPrice")
 
-   addToCart = addEl("button", pizzaPrice, "id", "addToCart", "class", "hidden")
+   addToCart = addEl("button", pizzaPrice, "id", "addToCart", "class", "hidden", "class", "headerButton");
+   addToCart.style.height = "70px";
    addToCart.innerText = "ADD TO CART"
    addToCart.addEventListener("click", addToCartButton)
 
@@ -461,6 +438,50 @@ let logoBTN = () => {
     window.location.reload();
    })
 }
+
+let contactInfo = () => {
+  divTransparentContact = document.getElementById("divTransparentContact")
+  divTransparentContact.style.visibility = "visible";
+  let backButton = document.getElementById("backSubmit");
+  let contactForm = document.getElementById("contactForm");
+  let contactSubmit = document.getElementById("contactSubmit");
+  contactSubmit.addEventListener("click", (event) => {
+
+    userCommentSchema.FirstName = document.getElementById("input1");
+    userCommentSchema.LastName = document.getElementById("input2");
+    userCommentSchema.Email = document.getElementById("input3");
+    userCommentSchema.Subject = document.getElementById("input4");
+    userCommentSchema.Message = document.getElementById("input5");
+
+    fetch("/pizza/list/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userCommentSchema)
+    }).then(response => response.json())
+      .then(response => {
+      console.log(response);
+    })
+
+    location.reload();
+  })
+
+  contactDiv = document.getElementById("contactInfo");
+  contactDiv.innerText = "At Vito's, we want every customer to have a good experience. From the way your food tastes to the welcome you receive when you first come in the door, to the cleanliness of your table. We want you to be happy you chose to have a meal with us. We would love to hear from you so that we can continue to improve our product and service.\n\n Note: Party room reservations may be made using our Reservations Form. Please do not use the General Comment form below to request room reservations\n\n\n"
+  contactDiv.innerText += "GENERAL COMMENT FORM\n\n This form is intended for general comments. A response may take up to 3 days.\n\n For all orders, questions about orders, or party-room reservations please call the restaurant directly during normal business hours. Thank you"
+  let contactFormButton = addEl("button", contactDiv, "id", "contactFormButton", "class", "headerButton");
+  contactFormButton.innerText = "Click here to open the form";
+  contactFormButton.addEventListener('click', (event) => {
+        contactForm.style.visibility = "visible";
+  })
+  backButton.addEventListener("click", (event) => {
+    contactForm.style.visibility = "hidden";
+  })
+}
+
+
+
 const loadEvent = () => {
   let pizzaBigImgHolder = addEl("div", root , "id", "pizzaBigImgHolder")
   addEl("img",pizzaBigImgHolder, "src","/images/cutter.png", "class", "cutter" )
@@ -471,7 +492,8 @@ const loadEvent = () => {
   
 
   loginHandle.addEventListener('click', userInfo)
-  cartButton.addEventListener("click", showCart)
+  cartButton.addEventListener('click', showCart)
+  contactButton.addEventListener('click', contactInfo)
 
   allPizzas([]);
   menuBTN();
